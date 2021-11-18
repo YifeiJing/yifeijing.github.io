@@ -2,20 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-18T08:57:46.777Z</updated>
+    <updated>2021-11-18T11:05:53.519Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
-    <subtitle>&lt;a color=&quot;#fefefe&quot;&gt; Yifei&apos;s personal blog! &lt;/a&gt;</subtitle>
+    <subtitle>Yifei&apos;s personal blog!</subtitle>
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[How to build a website for free (The method of building this website)]]></title>
+        <id>https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/</id>
+        <link href="https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/">
+        </link>
+        <updated>2021-11-18T13:53:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="recipe">Recipe</h2>
+<ul>
+<li><a href="https://github.com/getgridea/gridea">Gridea</a>: A static blog writing client</li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages">Github Pages</a>: A static site hosting service based on a repository on Github</li>
+</ul>
+<h2 id="method">Method</h2>
+<ol>
+<li>Get the <strong>Gridea</strong> installed on your device</li>
+<li>Register for a <strong>Github</strong> account</li>
+<li>Create a new repository with its name specifically be <code>&lt;username&gt;.github.io</code>  <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, where <code>&lt;username&gt;</code> is the placeholder for you user name</li>
+<li>Direct to <em>Settings</em> -&gt; <em>Developer settings</em> -&gt; <em>Personal access tokens</em>, and <em>Generate new token</em> here</li>
+<li>At the <em>Select scopes</em> region, check <em>repo</em>, then <em>Generate token</em></li>
+<li>Copy that token and paste it to the corresponding place in <strong>Gridea</strong>'s server panel</li>
+<li>Fill in the domain part and repository part with <code>&lt;username&gt;.github.io</code>, which you created before</li>
+<li>Branch is normally &quot;main&quot;, and Branch username is your username</li>
+<li>Other parts are ok to be empty</li>
+<li>Save and Synchronize</li>
+</ol>
+<h2 id="advanced">Advanced</h2>
+<p>In the <em>Theme</em> part of <strong>Gridea</strong>, other themes created by users can be deployed, which, apart from writing blogs, may be another time-costing task. The theme of this blog called &quot;Next&quot; was created by users and a lot of plug-ins have been integrated.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>The reason is that <strong>Github</strong> automatically creates the <strong>Github Pages</strong> for this domain name, and the <strong>Gridea</strong> assumes that the user is using the default domain, so that other problems of root path can be solved. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[About]]></title>
         <id>https://yifeijing.github.io/post/about/</id>
         <link href="https://yifeijing.github.io/post/about/">
         </link>
-        <updated>2021-11-18T11:07:48.000Z</updated>
+        <updated>2021-11-18T12:07:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>Welcome to my site, it's my pleasure to meet you!<br>
 欢迎来到我的小站呀，很高兴遇见你！🤝</p>
@@ -44,7 +79,7 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
         <id>https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/</id>
         <link href="https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/">
         </link>
-        <updated>2021-11-18T10:32:43.000Z</updated>
+        <updated>2021-11-18T11:32:43.000Z</updated>
         <content type="html"><![CDATA[<h1 id="simply-logical">Simply logical</h1>
 <h2 id="logical-programming">Logical programming</h2>
 <hr>
@@ -110,6 +145,34 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
 <hr>
 <h2 id="sld-resolution">SLD Resolution</h2>
 <p>S for <em>selection rule</em>, L for <em>linear</em> resolution, D for <em>definite</em> clauses.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hermann Hesse Quotes]]></title>
+        <id>https://yifeijing.github.io/post/hermann-hesse-quotes/</id>
+        <link href="https://yifeijing.github.io/post/hermann-hesse-quotes/">
+        </link>
+        <updated>2021-09-26T12:26:59.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Hermann Hesse, a German-Swiss poet, novelist, has been deeply influenced me during the time of an undergraduate. The book <strong>Siddhartha</strong> has been my favorite book. This article is to include some famous quotes from him.</p>
+<h2 id="quotes">Quotes</h2>
+<ul>
+<li>If I know what love is, it is because of you.</li>
+<li>Some of us think holding on makes us strong; but sometimes it is letting go.</li>
+<li>If you hate a person, you hate something in him that is part of yourself. What isn't part of ourselves doesn't disturb us.</li>
+<li>The truth is lived, not taught.</li>
+<li>Happiness is a how; not a what. A talent, not an object.</li>
+<li>Eternity is a mere moment, just long enough for a joke.</li>
+<li>One never reaches home, but wherever friendly paths intersect the whole world looks like home for a time.</li>
+<li>Love of God is not always the same as love of good.</li>
+<li>The world is not imperfect or slowly evolving along a path to perfection. No, it is perfect at every moment, every sin already carries grace in it.</li>
+<li>Our mind is capable of passing beyond the dividing line we have drawn for it. Beyond the pairs of opposites of which the world consists, other, new insights begin.</li>
+<li>It may be important to great thinkers to examine the world, to explain and despise it. But I think it is only important to love the world, not to despise it, not for us to hate each other, but to be able to regard the world and ourselves and all beings with love, admiration and respect.</li>
+</ul>
+<h2 id="links">Links</h2>
+<p><a href="https://www.goodreads.com/quotes/tag/hermann-hesse">Goodreads</a><br>
+<a href="https://www.brainyquote.com/authors/hermann-hesse-quotes">BrainyQuotes</a><br>
+<a href="https://everydaypower.com/hermann-hesse-quotes/">EverydayPower</a></p>
 ]]></content>
     </entry>
 </feed>
