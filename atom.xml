@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io/gridea-website</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-18T05:58:45.357Z</updated>
+    <updated>2021-11-18T06:09:16.459Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io/gridea-website"/>
     <link rel="self" href="https://yifeijing.github.io/gridea-website/atom.xml"/>
@@ -10,4 +10,26 @@
     <logo>https://yifeijing.github.io/gridea-website/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/gridea-website/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[About]]></title>
+        <id>https://yifeijing.github.io/gridea-website/post/about/</id>
+        <link href="https://yifeijing.github.io/gridea-website/post/about/">
+        </link>
+        <updated>2021-11-18T08:07:48.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>Welcome to my site, it's my pleasure to meet you!<br>
+欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+</blockquote>
+<h2 id="about-this-website-关于本站">🏠 About this website 关于本站</h2>
+<p>This website is established based on a static website app called <em>Gridea</em>. Under this app, all passage and creatings can be make soleby <em>markdown</em>.</p>
+<p>Don't know what to do though, とりあえず何かを書きましょうか.</p>
+<h2 id="about-me-博主是谁">👨‍💻 About me 博主是谁</h2>
+<p>A student, a developer</p>
+<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
+<p>badminton &amp; languages</p>
+<p>Bare metal &amp; SoC</p>
+<h2 id="联系我呀">📬 联系我呀</h2>
+<p>emial: yifei.j@ik.me</p>
+]]></content>
+    </entry>
 </feed>
