@@ -144,7 +144,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                About
+                                PLT Self-summaries (Based on the book Simply Logical)
                             </h1>
                             
                                     <!--zh-->
@@ -155,13 +155,17 @@
                                         </a>
                                         <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-11-18</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">1.3
+                                    href="#">5.6
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">221</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">893</a></span>
                                         
                                             <span class="post-category">&#x5206;&#x7C7B;:
                                 
-                                <a href="https://yifeijing.github.io/gridea-website/tag/2n6MaB8NM/">Init</a>
+                                <a href="https://yifeijing.github.io/gridea-website/tag/IQWlYpvJb/">Notes</a>
+                                
+                                <a href="https://yifeijing.github.io/gridea-website/tag/lEPp7QlQ31/">Programming</a>
+                                
+                                <a href="https://yifeijing.github.io/gridea-website/tag/gI7EAM_fzM/">Math</a>
                                 
                             </span>
                                             
@@ -169,28 +173,74 @@
                                     
                         </header>
                         
+                            <img class="post-feature-image" src="https://yifeijing.github.io/gridea-website/post-images/plt-self-summaries-based-on-the-book-simply-logical.png" alt="">
+                          
                         <div class="post-content">
-                            <blockquote>
-<p>Welcome to my site, it's my pleasure to meet you!<br>
-欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="about-this-website-关于本站">🏠 About this website 关于本站</h2>
-<p>This website is established based on a static website app called <em>Gridea</em>. Under this app, all passage and creatings can be make solely by <em>markdown</em>.</p>
-<p>Don't know what to do though, とりあえず何かを書きましょうか.<br>
-I was always thinking to record my life in some ways, and this may be a solution.<br>
-Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
-<h2 id="about-me-博主是谁">👨‍💻 About me 博主是谁</h2>
-<ul>
-<li>A student 🎓</li>
-<li>A developer 🔨</li>
-<li>A bloger (Maybe) 🖊</li>
-</ul>
-<p>I have been always thinking writing a comprehensive and inclusive description about me, however, this task always failed with subjective perspectives. The reason, as I have written so many self-introduces, happens to be that man is living with multiple identities, which cannot be unified by some universal introductions. Some of them can be so hard to elaborate to whoever I meet that talking always ends with embarassments and exhaustions. Thus, I chose to tag me with some common identities, and hoped that will be better to start dialogs.</p>
-<h2 id="interests-兴趣爱好">⛹ Interests 兴趣爱好</h2>
-<p>badminton 🏸 &amp; languages 📚</p>
-<p>Bare metal &amp; SoC</p>
-<h2 id="contacts-联系我呀">📬 Contacts 联系我呀</h2>
-<p>emial: yifei.j@ik.me</p>
+                            <h1 id="simply-logical">Simply logical</h1>
+<h2 id="logical-programming">Logical programming</h2>
+<hr>
+<h3 id="what-is-it">What is it</h3>
+<p>Rather than viewing a computer program as a step-by-step description of an algorithm, the program is conceived as a logical theory, and a procedure call is viewed as a theorem of which the truth needs to be established. Thus, executing a program means searching for a proof.</p>
+<h3 id="about-the-variables">About the variables</h3>
+<p>In imperative languages, a variable is a name for a memory location which can store data of certain types. While the contents of the location may vary over time, the variable always points to the same location. In fact, the term ‘variable’ is a bit of a misnomer here, since it refers to a value that is well-defined at every moment. In contrast, a variable in a logic program is a variable in the mathematical sense, i.e. a placeholder that can take on any value. In this respect, Logic Programming is therefore much closer to mathematical intuition than imperative programming.</p>
+<h3 id="machine-model">Machine model</h3>
+<p>A machine model is an abstraction of the computer on which programs are executed. The imperative paradigm assumes a dynamic, state-based machine model, where the state of the computer is given by the contents of its memory. The effect of a program statement is a transition from one state to another. Logic Programming does not assume such a dynamic machine model. Computer plus program represent a certain amount of knowledge about the world, which is used to answer queries.</p>
+<h2 id="propositional-clausal-logics">Propositional Clausal logics</h2>
+<hr>
+<h3 id="nomenclature">Nomenclature</h3>
+<p><em>facts</em>: Unconditional truths.<br>
+<em>rules</em>: Conditional truths.<br>
+<em>query</em>: &quot;?-&quot;<br>
+<em>answer</em>:{-&gt;}<br>
+<em>ground fact</em>: A fact without variables.<br>
+<em>proposition</em>: Any statement which is either true or false.<br>
+<em>atom</em>: A single word starting with a lowercase character and denoting a <em>proposition</em>.<br>
+<em>clause</em>: Combined atoms.<br>
+<em>program</em>: A set of <em>clauses</em>, each of them is terminated by a period.<br>
+<em>Herbrand Base</em>: The set of <em>atoms</em> occuring in a <em>program</em>.<br>
+<em>Herbrand Interpretation</em>: A mapping from the <em>Herbrand Base</em> of a <em>program</em> into the set of truth values.<br>
+<em>Model</em>: If a <em>clause</em> is true in an <em>interpretation</em>, we say that the <em>interpretation</em> is a <em>model</em> for the <em>clause</em>. An <em>interpretation</em> is a <em>model</em> for a <em>program</em> if it is a <em>model</em> for each <em>clause</em> in the <em>program</em>.<br>
+<em>logical consequence</em>: A <em>clause</em> is a <em>logical consequence</em> of a <em>program</em>, if every <em>model</em> of the <em>program</em> is also a <em>model</em> of the <em>clause</em>.<br>
+<em>resolution</em>: a single inference step to derive the <em>solvent</em></p>
+<h3 id="general-reasoning-pattern">General reasoning pattern</h3>
+<p>To answer a query ?- Q1, Q2, …, Qn, find a rule A :- B1, …, Bm such that A matches with Q1, and answer the query ?- B1, …, Bm, Q2, …, Qn.</p>
+<h3 id="clause-values">Clause values</h3>
+<p>Since a Herbrand interpretation assigns truth values to every atom in a clause, it also assigns a truth value to the clause as a whole. The rules for determining the truth value of a clause from the truth values of its atoms are not so complicated, if you keep in mind that the body of a clause is a conjunction of atoms, and the head is a disjunction. Consequently, the body of a clause is true if every atom in it is true, and the head of a clause is true if at least one atom in it is true.</p>
+<h3 id="unresolved-question">Unresolved question</h3>
+<p>It is easy to show that propositional resolution is sound: you have to establish that every model for the two input clauses is a model for the resolvent. In our earlier example, every model of married;bachelor:-man,adult and has_wife:-man,married must be a model of has_wife;bachelor:-man,adult. Now, the literal resolved upon (in this case married) is either assigned the truth value true or false. In the first case, every model of has_wife:-man,married is also a model of has_wife:-man; in the second case, every model of married;bachelor:-man,adult is also a model of bachelor:-man,adult. In both cases, these models are models of a subclause of the resolvent, which means that they are also models of the resolvent itself.</p>
+<h3 id="reduction-to-absurd">Reduction to absurd</h3>
+<p>By proofing inconsistency of the logical consequence (the right side becomes empty), the logical consequence is proved.</p>
+<h2 id="relational-clausal-logic">Relational Clausal logic</h2>
+<hr>
+<h3 id="semantics">Semantics</h3>
+<p><em>Herbrand universe</em>: the set of <em>ground terms</em><br>
+<em>Herbrand base</em>: the set of <em>ground atoms</em> that can be constructed using predicates in the program and the <em>ground terms</em> in <em>Herbrand universe</em><br>
+<em>Herbrand interpretation</em>: the subset of the <em>Herbrand base</em> whose elements are assigned the truth value true.</p>
+<h3 id="syntax">Syntax</h3>
+<p><em>constant</em>: individual name<br>
+<em>variable</em>: arbitrary individual<br>
+<em>term</em>: <em>constant</em> and <em>variable</em><br>
+<em>atom</em>: a predicate followed by a number of <em>terms</em><br>
+<em>ground term</em>: a term without <em>variables</em><br>
+<em>ground atom</em>: an atom without <em>variables</em></p>
+<h3 id="proof-theory">Proof theory</h3>
+<p><em>unification</em>: making a pair of atoms the same by substitution of the <em>variables</em><br>
+<em>most general unifier</em>: the most general <em>unifier</em>, which is a <em>substitution</em><br>
+<em>proof tree</em>: two clauses on a row are input clauses for a resolution step, and they are connected by lines to their resolvent</p>
+<h4 id="strategy">strategy</h4>
+<p>proof by refutation. Starts a query, then finds an inconsistency by means of resolution.</p>
+<h3 id="meta-theory">Meta-theory</h3>
+<p>finite</p>
+<h2 id="full-clausal-logic">Full clausal logic</h2>
+<hr>
+<h3 id="syntax-2">Syntax</h3>
+<p><em>term</em>: Constants and variables are <em>simple terms</em>. A <em>complex term</em> is a functor followed by a number of terms.</p>
+<h3 id="semantics-2">Semantics</h3>
+<p><em>Herbrand universe</em>: the set of ground terms that can be constructed from constants and functors in the program</p>
+<h2 id="definite-clause-logic">Definite clause logic</h2>
+<hr>
+<h2 id="sld-resolution">SLD Resolution</h2>
+<p>S for <em>selection rule</em>, L for <em>linear</em> resolution, D for <em>definite</em> clauses.</p>
 
                         </div>
                         
@@ -200,9 +250,9 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yifeijing.github.io/gridea-website/post/about/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yifeijing.github.io/gridea-website/post/about/&sharesource=qzone&title=About&pics=https://yifeijing.github.io/gridea-website/images/avatar.png?v=1637221704434&summary="><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yifeijing.github.io/gridea-website/post/about/&sharesource=weibo&title=About + " - " + &pic="https://yifeijing.github.io/gridea-website/images/avatar.png?v=1637221704434 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/&sharesource=qzone&title=PLT Self-summaries (Based on the book Simply Logical)&pics=https://yifeijing.github.io/gridea-website/images/avatar.png?v=1637221704434&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/&sharesource=weibo&title=PLT Self-summaries (Based on the book Simply Logical) + " - " + &pic="https://yifeijing.github.io/gridea-website/images/avatar.png?v=1637221704434 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -213,8 +263,16 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
                                                                                     <span class="tag ">
                         
                         
-                        <a href="https://yifeijing.github.io/gridea-website/tag/2n6MaB8NM/">#
-                    Init
+                        <a href="https://yifeijing.github.io/gridea-website/tag/IQWlYpvJb/">#
+                    Notes
+                        </a>
+                        
+                        <a href="https://yifeijing.github.io/gridea-website/tag/lEPp7QlQ31/">#
+                    Programming
+                        </a>
+                        
+                        <a href="https://yifeijing.github.io/gridea-website/tag/gI7EAM_fzM/">#
+                    Math
                         </a>
                         
                             
@@ -232,11 +290,11 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://yifeijing.github.io/gridea-website/post/about/">
+                                                                                            About
+                                                                                        </a>
+                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/">
-                                                                                                    PLT Self-summaries (Based on the book Simply Logical)
-                                                                                                </a>
-                                                                                                
                                                                                 </section>
                     </article>
                 </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io/gridea-website</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-18T07:14:43.036Z</updated>
+    <updated>2021-11-18T07:49:44.009Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io/gridea-website"/>
     <link rel="self" href="https://yifeijing.github.io/gridea-website/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://yifeijing.github.io/gridea-website/post/about/</id>
         <link href="https://yifeijing.github.io/gridea-website/post/about/">
         </link>
-        <updated>2021-11-18T10:07:48.000Z</updated>
+        <updated>2021-11-18T11:07:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>Welcome to my site, it's my pleasure to meet you!<br>
 欢迎来到我的小站呀，很高兴遇见你！🤝</p>
@@ -28,7 +28,7 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
 <h2 id="about-me-博主是谁">👨‍💻 About me 博主是谁</h2>
 <ul>
 <li>A student 🎓</li>
-<li>A developer 👓</li>
+<li>A developer 🔨</li>
 <li>A bloger (Maybe) 🖊</li>
 </ul>
 <p>I have been always thinking writing a comprehensive and inclusive description about me, however, this task always failed with subjective perspectives. The reason, as I have written so many self-introduces, happens to be that man is living with multiple identities, which cannot be unified by some universal introductions. Some of them can be so hard to elaborate to whoever I meet that talking always ends with embarassments and exhaustions. Thus, I chose to tag me with some common identities, and hoped that will be better to start dialogs.</p>
@@ -37,6 +37,79 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
 <p>Bare metal &amp; SoC</p>
 <h2 id="contacts-联系我呀">📬 Contacts 联系我呀</h2>
 <p>emial: yifei.j@ik.me</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PLT Self-summaries (Based on the book Simply Logical)]]></title>
+        <id>https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/</id>
+        <link href="https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/">
+        </link>
+        <updated>2021-11-18T10:32:43.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="simply-logical">Simply logical</h1>
+<h2 id="logical-programming">Logical programming</h2>
+<hr>
+<h3 id="what-is-it">What is it</h3>
+<p>Rather than viewing a computer program as a step-by-step description of an algorithm, the program is conceived as a logical theory, and a procedure call is viewed as a theorem of which the truth needs to be established. Thus, executing a program means searching for a proof.</p>
+<h3 id="about-the-variables">About the variables</h3>
+<p>In imperative languages, a variable is a name for a memory location which can store data of certain types. While the contents of the location may vary over time, the variable always points to the same location. In fact, the term ‘variable’ is a bit of a misnomer here, since it refers to a value that is well-defined at every moment. In contrast, a variable in a logic program is a variable in the mathematical sense, i.e. a placeholder that can take on any value. In this respect, Logic Programming is therefore much closer to mathematical intuition than imperative programming.</p>
+<h3 id="machine-model">Machine model</h3>
+<p>A machine model is an abstraction of the computer on which programs are executed. The imperative paradigm assumes a dynamic, state-based machine model, where the state of the computer is given by the contents of its memory. The effect of a program statement is a transition from one state to another. Logic Programming does not assume such a dynamic machine model. Computer plus program represent a certain amount of knowledge about the world, which is used to answer queries.</p>
+<h2 id="propositional-clausal-logics">Propositional Clausal logics</h2>
+<hr>
+<h3 id="nomenclature">Nomenclature</h3>
+<p><em>facts</em>: Unconditional truths.<br>
+<em>rules</em>: Conditional truths.<br>
+<em>query</em>: &quot;?-&quot;<br>
+<em>answer</em>:{-&gt;}<br>
+<em>ground fact</em>: A fact without variables.<br>
+<em>proposition</em>: Any statement which is either true or false.<br>
+<em>atom</em>: A single word starting with a lowercase character and denoting a <em>proposition</em>.<br>
+<em>clause</em>: Combined atoms.<br>
+<em>program</em>: A set of <em>clauses</em>, each of them is terminated by a period.<br>
+<em>Herbrand Base</em>: The set of <em>atoms</em> occuring in a <em>program</em>.<br>
+<em>Herbrand Interpretation</em>: A mapping from the <em>Herbrand Base</em> of a <em>program</em> into the set of truth values.<br>
+<em>Model</em>: If a <em>clause</em> is true in an <em>interpretation</em>, we say that the <em>interpretation</em> is a <em>model</em> for the <em>clause</em>. An <em>interpretation</em> is a <em>model</em> for a <em>program</em> if it is a <em>model</em> for each <em>clause</em> in the <em>program</em>.<br>
+<em>logical consequence</em>: A <em>clause</em> is a <em>logical consequence</em> of a <em>program</em>, if every <em>model</em> of the <em>program</em> is also a <em>model</em> of the <em>clause</em>.<br>
+<em>resolution</em>: a single inference step to derive the <em>solvent</em></p>
+<h3 id="general-reasoning-pattern">General reasoning pattern</h3>
+<p>To answer a query ?- Q1, Q2, …, Qn, find a rule A :- B1, …, Bm such that A matches with Q1, and answer the query ?- B1, …, Bm, Q2, …, Qn.</p>
+<h3 id="clause-values">Clause values</h3>
+<p>Since a Herbrand interpretation assigns truth values to every atom in a clause, it also assigns a truth value to the clause as a whole. The rules for determining the truth value of a clause from the truth values of its atoms are not so complicated, if you keep in mind that the body of a clause is a conjunction of atoms, and the head is a disjunction. Consequently, the body of a clause is true if every atom in it is true, and the head of a clause is true if at least one atom in it is true.</p>
+<h3 id="unresolved-question">Unresolved question</h3>
+<p>It is easy to show that propositional resolution is sound: you have to establish that every model for the two input clauses is a model for the resolvent. In our earlier example, every model of married;bachelor:-man,adult and has_wife:-man,married must be a model of has_wife;bachelor:-man,adult. Now, the literal resolved upon (in this case married) is either assigned the truth value true or false. In the first case, every model of has_wife:-man,married is also a model of has_wife:-man; in the second case, every model of married;bachelor:-man,adult is also a model of bachelor:-man,adult. In both cases, these models are models of a subclause of the resolvent, which means that they are also models of the resolvent itself.</p>
+<h3 id="reduction-to-absurd">Reduction to absurd</h3>
+<p>By proofing inconsistency of the logical consequence (the right side becomes empty), the logical consequence is proved.</p>
+<h2 id="relational-clausal-logic">Relational Clausal logic</h2>
+<hr>
+<h3 id="semantics">Semantics</h3>
+<p><em>Herbrand universe</em>: the set of <em>ground terms</em><br>
+<em>Herbrand base</em>: the set of <em>ground atoms</em> that can be constructed using predicates in the program and the <em>ground terms</em> in <em>Herbrand universe</em><br>
+<em>Herbrand interpretation</em>: the subset of the <em>Herbrand base</em> whose elements are assigned the truth value true.</p>
+<h3 id="syntax">Syntax</h3>
+<p><em>constant</em>: individual name<br>
+<em>variable</em>: arbitrary individual<br>
+<em>term</em>: <em>constant</em> and <em>variable</em><br>
+<em>atom</em>: a predicate followed by a number of <em>terms</em><br>
+<em>ground term</em>: a term without <em>variables</em><br>
+<em>ground atom</em>: an atom without <em>variables</em></p>
+<h3 id="proof-theory">Proof theory</h3>
+<p><em>unification</em>: making a pair of atoms the same by substitution of the <em>variables</em><br>
+<em>most general unifier</em>: the most general <em>unifier</em>, which is a <em>substitution</em><br>
+<em>proof tree</em>: two clauses on a row are input clauses for a resolution step, and they are connected by lines to their resolvent</p>
+<h4 id="strategy">strategy</h4>
+<p>proof by refutation. Starts a query, then finds an inconsistency by means of resolution.</p>
+<h3 id="meta-theory">Meta-theory</h3>
+<p>finite</p>
+<h2 id="full-clausal-logic">Full clausal logic</h2>
+<hr>
+<h3 id="syntax-2">Syntax</h3>
+<p><em>term</em>: Constants and variables are <em>simple terms</em>. A <em>complex term</em> is a functor followed by a number of terms.</p>
+<h3 id="semantics-2">Semantics</h3>
+<p><em>Herbrand universe</em>: the set of ground terms that can be constructed from constants and functors in the program</p>
+<h2 id="definite-clause-logic">Definite clause logic</h2>
+<hr>
+<h2 id="sld-resolution">SLD Resolution</h2>
+<p>S for <em>selection rule</em>, L for <em>linear</em> resolution, D for <em>definite</em> clauses.</p>
 ]]></content>
     </entry>
 </feed>
