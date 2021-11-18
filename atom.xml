@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io/gridea-website</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-18T06:28:34.629Z</updated>
+    <updated>2021-11-18T07:07:48.666Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io/gridea-website"/>
     <link rel="self" href="https://yifeijing.github.io/gridea-website/atom.xml"/>
@@ -15,20 +15,27 @@
         <id>https://yifeijing.github.io/gridea-website/post/about/</id>
         <link href="https://yifeijing.github.io/gridea-website/post/about/">
         </link>
-        <updated>2021-11-18T08:07:48.000Z</updated>
+        <updated>2021-11-18T10:07:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>Welcome to my site, it's my pleasure to meet you!<br>
 欢迎来到我的小站呀，很高兴遇见你！🤝</p>
 </blockquote>
 <h2 id="about-this-website-关于本站">🏠 About this website 关于本站</h2>
-<p>This website is established based on a static website app called <em>Gridea</em>. Under this app, all passage and creatings can be make soleby <em>markdown</em>.</p>
-<p>Don't know what to do though, とりあえず何かを書きましょうか.</p>
+<p>This website is established based on a static website app called <em>Gridea</em>. Under this app, all passage and creatings can be make solely by <em>markdown</em>.</p>
+<p>Don't know what to do though, とりあえず何かを書きましょうか.<br>
+I was always thinking to record my life in some ways, and this may be a solution.<br>
+Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
 <h2 id="about-me-博主是谁">👨‍💻 About me 博主是谁</h2>
-<p>A student, a developer</p>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<p>badminton &amp; languages</p>
+<ul>
+<li>A student 🎓</li>
+<li>A developer 👓</li>
+<li>A bloger (Maybe) 🖊</li>
+</ul>
+<p>I have been always thinking writing a comprehensive and inclusive description about me, however, this task always failed with subjective perspectives. The reason, as I have written so many self-introduces, happens to be that man is living with multiple identities, which cannot be unified by some universal introductions. Some of them can be so hard to elaborate to whoever I meet that talking always ends with embarassments and exhaustions. Thus, I chose to tag me with some common identities, and hoped that will be better to start dialogs.</p>
+<h2 id="interests-兴趣爱好">⛹ Interests 兴趣爱好</h2>
+<p>badminton 🏸 &amp; languages 📚</p>
 <p>Bare metal &amp; SoC</p>
-<h2 id="联系我呀">📬 联系我呀</h2>
+<h2 id="contacts-联系我呀">📬 Contacts 联系我呀</h2>
 <p>emial: yifei.j@ik.me</p>
 ]]></content>
     </entry>
