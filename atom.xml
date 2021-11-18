@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://yifeijing.github.io/gridea-website/</id>
+    <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-18T08:28:57.556Z</updated>
+    <updated>2021-11-18T08:47:48.861Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://yifeijing.github.io/gridea-website/"/>
-    <link rel="self" href="https://yifeijing.github.io/gridea-website/atom.xml"/>
+    <link rel="alternate" href="https://yifeijing.github.io"/>
+    <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
     <subtitle>&lt;a color=&quot;#fefefe&quot;&gt; Yifei&apos;s personal blog! &lt;/a&gt;</subtitle>
-    <logo>https://yifeijing.github.io/gridea-website/images/avatar.png</logo>
-    <icon>https://yifeijing.github.io/gridea-website/favicon.ico</icon>
+    <logo>https://yifeijing.github.io/images/avatar.png</logo>
+    <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
     <entry>
         <title type="html"><![CDATA[About]]></title>
-        <id>https://yifeijing.github.io/gridea-website/post/about/</id>
-        <link href="https://yifeijing.github.io/gridea-website/post/about/">
+        <id>https://yifeijing.github.io/post/about/</id>
+        <link href="https://yifeijing.github.io/post/about/">
         </link>
         <updated>2021-11-18T11:07:48.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -41,8 +41,8 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[PLT Self-summaries (Based on the book Simply Logical)]]></title>
-        <id>https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/</id>
-        <link href="https://yifeijing.github.io/gridea-website/post/plt-self-summaries-based-on-the-book-simply-logical/">
+        <id>https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/</id>
+        <link href="https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/">
         </link>
         <updated>2021-11-18T10:32:43.000Z</updated>
         <content type="html"><![CDATA[<h1 id="simply-logical">Simply logical</h1>
