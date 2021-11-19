@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-19T11:07:01.489Z</updated>
+    <updated>2021-11-19T11:30:49.329Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -15,9 +15,9 @@
         <id>https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/</id>
         <link href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/">
         </link>
-        <updated>2021-11-19T10:54:12.000Z</updated>
+        <updated>2021-11-19T14:54:12.000Z</updated>
         <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>This is a desktop app which adds a small cat on the menu bar. The cat running at a speed relating to the CPU usage.<br>
+<p>This is a desktop app which adds a small cat on the menu bar. The cat is running at a speed relating to the CPU usage.<br>
 Based on <a href="https://apps.apple.com/jp/app/runcat/id1429033973?l=en&amp;mt=12">RunCat</a>, which has a full functionality, this is a free open-source version provided by the author.<br>
 Through learning this version, the basement of developing an App on the menu bar can be somehow interpretated.</p>
 <h2 id="elaboration">Elaboration</h2>
@@ -51,10 +51,12 @@ The basic function (how to get the cat running in the menu bar) can be found in 
 <p>The inspiration is from one of my friend, who asked me whether the cat can be replaced by a penguin. I said yes, as I know it is just a set of pictures. Then I dig into the the specifications of the images. Actually, there is only the height restriction on the images, which should be 36xp.</p>
 <p>I first used the <em>React</em> brand, that blue atom. I want it to rotate. Then I found the source image on the web. I use <em>GIMP</em> to rotate with 15, 30, 45 degrees. The reason is that it has six equal part, and rotating 60 degrees is the same as the original one. Add these images to the project Assets, then load them in the code. The rotating atom can be seen on the menu bar.<br>
 <img src="https://yifeijing.github.io/post-images/1637318261155.gif" alt="" loading="lazy"></p>
-<p>Finally, the penguin of <em>Suica</em> was tried. The penguin only has one pose, so I edited the picture to perform walking.<br>
+<p>Finally, the penguin of <em>Suica</em> was tried.</p>
+<img src="https://www.jrepoint.jp/resource/img/information/penguincalendar/2021/penguin_01.svg" alt="drawing" width="200"/>
+<p>The penguin only has one pose, so I edited the picture to perform walking.<br>
 <img src="https://yifeijing.github.io/post-images/1637318479594.gif" alt="" loading="lazy"><br>
-Then, the penguin face version was also created.<br>
-<img src="https://yifeijing.github.io/post-images/1637318774101.gif" alt="" loading="lazy"></p>
+Then, the penguin face version was also created.</p>
+<figure data-type="image" tabindex="1"><img src="https://yifeijing.github.io/post-images/1637318774101.gif" alt="" loading="lazy"></figure>
 <h2 id="challenge">Challenge</h2>
 <p>The lastest idea is that, using the most beautiful mathematical equation: <strong>Euler's equation</strong> to draw a rotating circle which generates sinusoidal waves with frequency related to the CPU usage.<br>
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Circle_cos_sin.gif" alt="" loading="lazy"><br>

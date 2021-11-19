@@ -9,7 +9,7 @@
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
 <title>Moriturus Te Saluto</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1637320018072">
+<link rel="shortcut icon" href="/favicon.ico?v=1637321422672">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -1176,7 +1176,7 @@
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/"" data-c="
           &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is a desktop app which adds a small cat on the menu bar. The cat running at a speed relating to the CPU usage.&lt;br&gt;
+&lt;p&gt;This is a desktop app which adds a small cat on the menu bar. The cat is running at a speed relating to the CPU usage.&lt;br&gt;
 Based on &lt;a href=&#34;https://apps.apple.com/jp/app/runcat/id1429033973?l=en&amp;amp;mt=12&#34;&gt;RunCat&lt;/a&gt;, which has a full functionality, this is a free open-source version provided by the author.&lt;br&gt;
 Through learning this version, the basement of developing an App on the menu bar can be somehow interpretated.&lt;/p&gt;
 &lt;h2 id=&#34;elaboration&#34;&gt;Elaboration&lt;/h2&gt;
@@ -1210,10 +1210,12 @@ The basic function (how to get the cat running in the menu bar) can be found in 
 &lt;p&gt;The inspiration is from one of my friend, who asked me whether the cat can be replaced by a penguin. I said yes, as I know it is just a set of pictures. Then I dig into the the specifications of the images. Actually, there is only the height restriction on the images, which should be 36xp.&lt;/p&gt;
 &lt;p&gt;I first used the &lt;em&gt;React&lt;/em&gt; brand, that blue atom. I want it to rotate. Then I found the source image on the web. I use &lt;em&gt;GIMP&lt;/em&gt; to rotate with 15, 30, 45 degrees. The reason is that it has six equal part, and rotating 60 degrees is the same as the original one. Add these images to the project Assets, then load them in the code. The rotating atom can be seen on the menu bar.&lt;br&gt;
 &lt;img src=&#34;https://yifeijing.github.io/post-images/1637318261155.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Finally, the penguin of &lt;em&gt;Suica&lt;/em&gt; was tried. The penguin only has one pose, so I edited the picture to perform walking.&lt;br&gt;
+&lt;p&gt;Finally, the penguin of &lt;em&gt;Suica&lt;/em&gt; was tried.&lt;/p&gt;
+&lt;img src=&#34;https://www.jrepoint.jp/resource/img/information/penguincalendar/2021/penguin_01.svg&#34; alt=&#34;drawing&#34; width=&#34;200&#34;/&gt;
+&lt;p&gt;The penguin only has one pose, so I edited the picture to perform walking.&lt;br&gt;
 &lt;img src=&#34;https://yifeijing.github.io/post-images/1637318479594.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-Then, the penguin face version was also created.&lt;br&gt;
-&lt;img src=&#34;https://yifeijing.github.io/post-images/1637318774101.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+Then, the penguin face version was also created.&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yifeijing.github.io/post-images/1637318774101.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;h2 id=&#34;challenge&#34;&gt;Challenge&lt;/h2&gt;
 &lt;p&gt;The lastest idea is that, using the most beautiful mathematical equation: &lt;strong&gt;Euler&#39;s equation&lt;/strong&gt; to draw a rotating circle which generates sinusoidal waves with frequency related to the CPU usage.&lt;br&gt;
 &lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/3/3b/Circle_cos_sin.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
