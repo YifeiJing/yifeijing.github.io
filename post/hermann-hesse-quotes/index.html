@@ -9,7 +9,7 @@
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
 <title>Hermann Hesse Quotes | Moriturus Te Saluto</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1637233769793">
+<link rel="shortcut icon" href="/favicon.ico?v=1637320018072">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -214,13 +214,13 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-count">14</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -610,8 +610,8 @@
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="PLT Self-summaries (Based on the book Simply Logical)" href="https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/">PLT Self-summaries (Based on the book Simply Logical)</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="PLT Self-summaries (Based on the book Simply Logical)" href="https://yifeijing.github.io/post/plt-self-summaries-based-on-the-book-simply-logical/">上一篇</a>
+        <a class="nav-pc-next" title="About" href="https://yifeijing.github.io/post/about/">About</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="About" href="https://yifeijing.github.io/post/about/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1697,6 +1697,85 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/"" data-c="
+          &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is a desktop app which adds a small cat on the menu bar. The cat running at a speed relating to the CPU usage.&lt;br&gt;
+Based on &lt;a href=&#34;https://apps.apple.com/jp/app/runcat/id1429033973?l=en&amp;amp;mt=12&#34;&gt;RunCat&lt;/a&gt;, which has a full functionality, this is a free open-source version provided by the author.&lt;br&gt;
+Through learning this version, the basement of developing an App on the menu bar can be somehow interpretated.&lt;/p&gt;
+&lt;h2 id=&#34;elaboration&#34;&gt;Elaboration&lt;/h2&gt;
+&lt;p&gt;By clone the &lt;a href=&#34;https://github.com/Kyome22/menubar_runcat&#34;&gt;repository&lt;/a&gt;, a program fully written in Swift can be compiled to run. The result is just one cat running.&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1637316405754.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+The basic function (how to get the cat running in the menu bar) can be found in the file &lt;em&gt;AppDelegate.swift&lt;/em&gt;. Actually, it&#39;s a &lt;em&gt;status item&lt;/em&gt; with its &lt;em&gt;button&lt;/em&gt; image changed ever since.&lt;/p&gt;
+&lt;p&gt;The images are previously prepared. To let the user see the cat running, the author prepared five pictures where cat in different postures have been drawn. The application loads these images on launching the app, then the button image changes by adding asynchronous task which executes at a later time.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Swift&#34;&gt;func animate() {
+        statusItem.button?.image = frames[cnt]
+        cnt = (cnt + 1) % frames.count
+        if !isRunning { return }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + interval) {
+            self.animate()
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The time of executing the task is dependent on parameter &lt;em&gt;deadline&lt;/em&gt;, which stores the time after an &amp;quot;interval&amp;quot;. This variable is appdated by the timer.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Swift&#34;&gt;func startRunning() {
+        cpuTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (t) in
+            self.usage = self.cpu.usageCPU()
+            self.interval = 0.02 * (100 - max(0.0, min(99.0, self.usage.value))) / 6
+            self.statusItem.button?.title = self.isShowUsage ? self.usage.description : &amp;quot;&amp;quot;
+        })
+        cpuTimer?.fire()
+        isRunning = true
+        animate()
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The value is based on the usage of the CPU, the more the CPU is used, the smaller this value is. As the interval gets smaller when CPU usage is larger, the frequncy of updating the images increases, thus the cat runs faster.&lt;/p&gt;
+&lt;h2 id=&#34;changing-to-other-images&#34;&gt;Changing to other images&lt;/h2&gt;
+&lt;p&gt;The inspiration is from one of my friend, who asked me whether the cat can be replaced by a penguin. I said yes, as I know it is just a set of pictures. Then I dig into the the specifications of the images. Actually, there is only the height restriction on the images, which should be 36xp.&lt;/p&gt;
+&lt;p&gt;I first used the &lt;em&gt;React&lt;/em&gt; brand, that blue atom. I want it to rotate. Then I found the source image on the web. I use &lt;em&gt;GIMP&lt;/em&gt; to rotate with 15, 30, 45 degrees. The reason is that it has six equal part, and rotating 60 degrees is the same as the original one. Add these images to the project Assets, then load them in the code. The rotating atom can be seen on the menu bar.&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1637318261155.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Finally, the penguin of &lt;em&gt;Suica&lt;/em&gt; was tried. The penguin only has one pose, so I edited the picture to perform walking.&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1637318479594.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+Then, the penguin face version was also created.&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1637318774101.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;challenge&#34;&gt;Challenge&lt;/h2&gt;
+&lt;p&gt;The lastest idea is that, using the most beautiful mathematical equation: &lt;strong&gt;Euler&#39;s equation&lt;/strong&gt; to draw a rotating circle which generates sinusoidal waves with frequency related to the CPU usage.&lt;br&gt;
+&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/3/3b/Circle_cos_sin.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+While this time, we cannot depend on pictures, as the waves are changing with frequency, that is to say, they should be created and rendered in time.&lt;/p&gt;
+&lt;p&gt;To move further, check the documentation of &lt;a href=&#34;https://developer.apple.com/documentation/appkit/nsimage&#34;&gt;NSImage&lt;/a&gt;.&lt;br&gt;
+At the &lt;code&gt;Overview&lt;/code&gt; part, there is one item:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Drawing images into a view or graphics context.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thus, it is possible to perform drawing into a context and render it later.&lt;/p&gt;
+&lt;p&gt;Actually, the drawing facilities are based on &lt;em&gt;Apple&lt;/em&gt;&#39;s &lt;em&gt;Cocoa&lt;/em&gt; framework, which was originally the graphic library of X OS.&lt;/p&gt;
+">Development of Cat run on menu bar</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/aperture/"" data-c="
+          &lt;h2 id=&#34;what-is-aperture&#34;&gt;What is aperture?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The hole in the lens, through which light travels into the camera body and onto the camera sensor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Normally, the larger the aperture size is, the more light that enters into the camera.&lt;/p&gt;
+&lt;h2 id=&#34;f-numbering&#34;&gt;F numbering&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;F-Stop&lt;/em&gt; is &lt;strong&gt;inversely&lt;/strong&gt; related to the aperture size.&lt;br&gt;
+The specifications of the lens show the maximum and minimum aperture sizes.&lt;br&gt;
+Mostly, the maximum aperture size is considered, as it indicates the speed of the lens.&lt;br&gt;
+Fast lens are usually have a maximum aperture from 1.4 to 5.6.&lt;/p&gt;
+&lt;h2 id=&#34;two-kinds-of-lenses&#34;&gt;Two kinds of lenses&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Prime lens&lt;/em&gt;: a fixed focal length and a fixed maximum aperture&lt;br&gt;
+&lt;em&gt;Zoom lens&lt;/em&gt;: zoom in and out stationary, while the maximum aperture always gets smaller, as the focal length increases&lt;/p&gt;
+&lt;h2 id=&#34;applications&#34;&gt;Applications&lt;/h2&gt;
+&lt;p&gt;As the aperture controls the amount of light entering into the camera, the shutter speed and ISO are also affected.&lt;br&gt;
+A larger aperture allows more light to enter the camera, thus a faster shutter speed and a smaller ISO value can be achieved. This is beneficial to eliminate the motion blur and reduce the noise into the camera. Large aperture is also needed in capturing night scenes.&lt;br&gt;
+A smaller aperture can be used in shooting landscape in day light as it focus everything in the scene.&lt;/p&gt;
+&lt;h2 id=&#34;resource&#34;&gt;Resource&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=YojL7UQTVhc&#34;&gt;Camera Basics - Aperture&lt;/a&gt;&lt;/p&gt;
+">Aperture</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/"" data-c="
           &lt;h2 id=&#34;recipe&#34;&gt;Recipe&lt;/h2&gt;
 &lt;ul&gt;
@@ -1726,32 +1805,6 @@
 &lt;/ol&gt;
 &lt;/section&gt;
 ">How to build a website for free (The method of building this website)</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/about/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;Welcome to my site, it&#39;s my pleasure to meet you!&lt;br&gt;
-欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;about-this-website-关于本站&#34;&gt;🏠 About this website 关于本站&lt;/h2&gt;
-&lt;p&gt;This website is established based on a static website app called &lt;em&gt;Gridea&lt;/em&gt;. Under this app, all passage and creatings can be make solely by &lt;em&gt;markdown&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Don&#39;t know what to do though, とりあえず何かを書きましょうか.&lt;br&gt;
-I was always thinking to record my life in some ways, and this may be a solution.&lt;br&gt;
-Buttttttt! Writing is a time-costing work. Anyway, try to be productive!&lt;/p&gt;
-&lt;h2 id=&#34;about-me-博主是谁&#34;&gt;👨‍💻 About me 博主是谁&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A student 🎓&lt;/li&gt;
-&lt;li&gt;A developer 🔨&lt;/li&gt;
-&lt;li&gt;A bloger (Maybe) 🖊&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I have been always thinking writing a comprehensive and inclusive description about me, however, this task always failed with subjective perspectives. The reason, as I have written so many self-introduces, happens to be that man is living with multiple identities, which cannot be unified by some universal introductions. Some of them can be so hard to elaborate to whoever I meet that talking always ends with embarassments and exhaustions. Thus, I chose to tag me with some common identities, and hoped that will be better to start dialogs.&lt;/p&gt;
-&lt;h2 id=&#34;interests-兴趣爱好&#34;&gt;⛹ Interests 兴趣爱好&lt;/h2&gt;
-&lt;p&gt;badminton 🏸 &amp;amp; languages 📚&lt;/p&gt;
-&lt;p&gt;Bare metal &amp;amp; SoC&lt;/p&gt;
-&lt;h2 id=&#34;contacts-联系我呀&#34;&gt;📬 Contacts 联系我呀&lt;/h2&gt;
-&lt;p&gt;emial: yifei.j@ik.me&lt;/p&gt;
-">About</a>
       </div>
       
       <div class="item">
@@ -1821,7 +1874,35 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!&lt;/p&g
 &lt;hr&gt;
 &lt;h2 id=&#34;sld-resolution&#34;&gt;SLD Resolution&lt;/h2&gt;
 &lt;p&gt;S for &lt;em&gt;selection rule&lt;/em&gt;, L for &lt;em&gt;linear&lt;/em&gt; resolution, D for &lt;em&gt;definite&lt;/em&gt; clauses.&lt;/p&gt;
+&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;backtracking&lt;/em&gt;: Pop the upper resolvent from the stack, and search for the next program clause&lt;/p&gt;
 ">PLT Self-summaries (Based on the book Simply Logical)</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;Welcome to my site, it&#39;s my pleasure to meet you!&lt;br&gt;
+欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;about-this-website-关于本站&#34;&gt;🏠 About this website 关于本站&lt;/h2&gt;
+&lt;p&gt;This website is established based on a static website app called &lt;em&gt;Gridea&lt;/em&gt;. Under this app, all passage and creatings can be make solely by &lt;em&gt;markdown&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Don&#39;t know what to do though, とりあえず何かを書きましょうか.&lt;br&gt;
+I was always thinking to record my life in some ways, and this may be a solution.&lt;br&gt;
+Buttttttt! Writing is a time-costing work. Anyway, try to be productive!&lt;/p&gt;
+&lt;h2 id=&#34;about-me-博主是谁&#34;&gt;👨‍💻 About me 博主是谁&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A student 🎓&lt;/li&gt;
+&lt;li&gt;A developer 🔨&lt;/li&gt;
+&lt;li&gt;A bloger (Maybe) 🖊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have been always thinking writing a comprehensive and inclusive description about me, however, this task always failed with subjective perspectives. The reason, as I have written so many self-introduces, happens to be that man is living with multiple identities, which cannot be unified by some universal introductions. Some of them can be so hard to elaborate to whoever I meet that talking always ends with embarassments and exhaustions. Thus, I chose to tag me with some common identities, and hoped that will be better to start dialogs.&lt;/p&gt;
+&lt;h2 id=&#34;interests-兴趣爱好&#34;&gt;⛹ Interests 兴趣爱好&lt;/h2&gt;
+&lt;p&gt;badminton 🏸 &amp;amp; languages 📚&lt;/p&gt;
+&lt;p&gt;Bare metal &amp;amp; SoC&lt;/p&gt;
+&lt;h2 id=&#34;contacts-联系我呀&#34;&gt;📬 Contacts 联系我呀&lt;/h2&gt;
+&lt;p&gt;emial: yifei.j@ik.me&lt;/p&gt;
+">About</a>
       </div>
       
       <div class="item">
