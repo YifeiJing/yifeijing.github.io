@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
-<title>Moriturus Te Saluto</title>
+<title>牡蛎与奥特莱斯 | Moriturus Te Saluto</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1637930986354">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,6 +41,8 @@
 
 
 
+  <meta name="description" content="牡蛎与奥特莱斯" />
+  <meta name="keywords" content="Life,Travel,Food,Chinese" />
 </head>
 
 <body>
@@ -173,10 +175,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -215,130 +233,403 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper  auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%8E%BB%E7%B3%B8%E5%B3%B6%E5%90%83%E7%89%A1%E8%9B%8E">去糸島吃牡蛎</a></li>
+<li><a href="#%E5%8E%BBmariana%E7%9A%84%E5%A5%A5%E7%89%B9%E8%8E%B1%E6%96%AF">去Mariana的奥特莱斯</a></li>
+<li><a href="#%E5%B0%8F%E8%AE%B0">小记</a></li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          Summary
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://yifeijing.github.io/post/shi-yi-yue-qu-she/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              11-24
-              <small>十一月：取舍</small>
-            </h1>
-          </div>
-        </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    jQuery.Velocity(hideElement, 'stop');
+    jQuery.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        jQuery.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://yifeijing.github.io/post/mu-li-yu-ao-te-lai-si/"> 牡蛎与奥特莱斯 </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-11-26 14:33:21">2021-11-26</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">标签:</span>
+       
+      <a href="https://yifeijing.github.io/tag/vmzQFpxYJ/"> <span>Life</span> </a>、   
+      <a href="https://yifeijing.github.io/tag/2afmUcoNE/"> <span>Travel</span> </a>、   
+      <a href="https://yifeijing.github.io/tag/vxierjTt4F/"> <span>Food</span> </a>、   
+      <a href="https://yifeijing.github.io/tag/WE31Lzv46/">
+        <span>Chinese</span>
       </a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+       
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span
+        >5<span class="language" data-lan="minute"
+          >分钟</span
+        ></span
+      >
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span
+        >1245<span class="pc-show language" data-lan="words"
+          >字数</span
+        ></span
+      >
+    </span>
+    
+  </div>
+</section>
+
+            <div class="post-body next-md-body" id="post_body">
+              <h1 id="去糸島吃牡蛎">去糸島吃牡蛎</h1>
+<p>昨天第一次去吃牡蛎，原因是最近被不只同学、朋友、还有老师安利：“这是吃牡蛎的季节。”<br>
+我没有吃海鲜的习惯，更确切的说，除了常见的虾和鱼，剩下的几乎没有吃过。所以此次出行完全是因为好奇和建议。<br>
+拉上三个朋友，去了位于糸島西边的船越。那里是渔港，所以有很多鱼料理。现在正是产牡蛎的季节，所以所有的店铺都是卖牡蛎。我们来到了叫做豊漁丸的一家店。店内的摆设都是带有烤架的桌子。然后点菜，我以为牡蛎只是配菜之一，没想到是主菜。确切的说，全是牡蛎，唯一能被称得上主食的炒饭也是牡蛎炒饭。我们点了4盛，1盛有12个牡蛎，所以是48个。原因是云说上次一个人吃了2盛。<br>
+点上火，就可以开始烤了。具体的样子如下图。<br>
+<img src="https://lh3.googleusercontent.com/er7Wz6nlyuuDmKHCYm5IaMYAIB4CF_Iw-54uEt37knYPW0qIY43sC-aZLaCkQ3UbO4MewrkwcxYNT1mPO_xJPNgn8Y_aVgwhfx0N16CnO0tviv962zvIkgOwLQRy2gDq2RFay2DIMJvLj1CRcexyLmkKRSaI2T0bTKXRpG9ZeBs7I8xc3w74KAljEySVu7gV-CjYlEg-pPYhgZxWSTwOjoXaxopkiEAhArEXgNe8L2qPszfc0rQUKzHWLrdy7wvgsX3KSTUDLAex1NRwxrfyTrYZwIQXQakn_Lsu-gGAIKzLMZTITf5VhZnEfRJYT8KYZzsAE1XSoOnv-nN3KYNIsIM6kdGU0Pt4qc7CgeujbIOEuidlIAGQLUGuKrH4e4Jv3A1LGI_NMdgUN8zemuZqS7dsWiLCRtDyshCrbhQ-JC_OUPva2Pu1sIYJcTej0sZhucfzx88fRecofZQHiDX-TawpFR1BQWFWpWQbm9zheMjj_ZzyVKTFMQefFR_PQFIzDLoL8ie9cMkNWil5QBSQQGH7G1dzOKIa2-jVXKNVVKFJwLTMjZlD7a1dLdyxKAr06kfc61FrFo65FGjERMhPjYwvU22PKr63z48UsHBZPn_fLjK_xkQmLoVeht7aiqQHtO2B2rhp04WFGtcIzvOjqYr1mBcDJ0xxpEoDFBYVz-zyRHepw13CrTpeLwn_uBFWGTb5tc7lf7H0PkgrMBPcszY=w2880-h1378-no?authuser=0" alt="kaki" loading="lazy"><br>
+直接将端上来的活牡蛎放在烤架上，什么预先准备都不用，甚至不用洗。。。活牡蛎的壳是紧闭的，而死了之后就会张开。随着牡蛎被烤死，就会有些牡蛎的壳自然张开，这时就可以吃了。然而终究没那么简单，因为有部分牡蛎烤熟了也不开壳，这就导致知道里面烤焦了才发现。烤好后，掰开壳，就能看到牡蛎的肉了，倒上酱汁，味道不错。我们拿到了<strong>大蒜黄油</strong>，明太子，还有酱油。之后一致同意大蒜黄油是最好吃的。<br>
+除此之外，其实还点了鱿鱼，一人一整只切好的，然后放在架子上烤好了沾上蛋黄酱吃，味道也非常好。<br>
+然而这顿饭唯一的缺点终究是成也牡蛎，败也牡蛎。这本来挺好吃的东西，但是支持这个的话，就像吃巧克力一样，刚开始很棒，后来就觉得很齁。无论什么吃多了都会不太好。我当晚就觉得头剧痛，前所未有的痛，因此只能十点早早休息了。<br>
+此次烤牡蛎之行，试一次对新食物的尝试，同时因为副作用很大有点劝退。至少又有人想去吃叫上我的时候我会稍微考虑下。或者直接拒绝掉。<br>
+话说回来，吃牡蛎的时候还知道了不得了的信息，那就是“男人的加油站”，因为牡蛎好像被用作很多壮阳药的原料。朋友们都说吃完后觉得自己可以大干一场。为什么我就反而头痛呢？</p>
+<h1 id="去mariana的奥特莱斯">去Mariana的奥特莱斯</h1>
+<p>早有要添置冬季衣服的想法了，因为从过内来日本带的东西太少了。中午吃完牡蛎，下午就和朋友去了位于小户的奥特莱斯。这是个很大的商业街，但是因为今年的疫情，生意十分清淡，几乎所有的店铺都在Sale，力度都在50%左右。当然也有一部分原因是Black Friday。可惜大部分店铺的牌子都是没怎么听过的牌子，可能算是轻度奢侈品，加个在半额后也依然感觉很贵（大概1万）。所以还是要调便宜的店，趁着黑五的折扣买一波。<br>
+本来想买一件厚羽绒服，但是价格挺高，有点下不去手。后来一想冬天大部分时间都是在室内，上学也是开车。所以可能只需要室内的长袖，然后外出有一件带过来的羽绒服罩在外面就行。因此最后买了件蓝色的卫衣。原价7600+，黑五半额，所以花了3800+。搭配随便一条牛仔裤就是平日装扮了。说的这里突然想到一个词，“都市土狗”。用在我身上甚是贴切。<br>
+<img src="https://yifeijing.github.io/post-images/1637929716281.jpg" alt="" loading="lazy"><br>
+然后买了一双板鞋和一双运动鞋。板鞋2990，运动鞋3990。<br>
+<img src="https://yifeijing.github.io/post-images/1637930017124.jpg" alt="" loading="lazy"><br>
+都是打折断码品，所以价格都减半或以上的卖。虽然说是低廉的价格了，换算成人命币还是不便宜了。花了将近1万完成了任务，这趟来的还是很值的。<br>
+下午四点钟左右来的，走的时候已经是七点了。天完全黑了以后，停车场旁边的一座教堂显得甚是庄严标志，用带在手边的Canon EOS拍了几张。<br>
+<img src="https://lh3.googleusercontent.com/ezEz_W0DGwmytUPA97wovODvU8SUNvf-3xcssAM-fcmibK7vJUIp6UBeP9DNRnu5VoCWr3TKL3QJxqUM3Sf1Ao5OTsG_fHUEw6-vUnlUP3WaHNbTYdFTmE7XlqLJNjIf1y0hxmpr1eMkYm6XgCo50YNyNhXcR_9uQ72BiJMc6sZlrAcyizNbJyVA8UozFSi_Vxhr8Zhg4ibxMhKEa1K8wq3sTnKZZL8S66clKt-dS2HmgcR_XIg53JcDcJXa42rrz3l9hcc57xjzm3Dt1qA91mwF3TWce0YZNPG4obS1-xB3jZQdVdsBOR_D3AYmmya427c9HukjQReImMKDs-PUmn77L2rOUQDcl_TqAaqt32P0xP2fmON46ZSHKh4cIUB-OLgQVBY6KY38gXPsPt4wIvwxgjVm3WBrxRUFGT6LZyy71vfZZ0MCB32dBGZHCdfBajGrIqYbTO4EbDHNDOj53fICxCxuJMmT2hd-4-t6daFCBR1ixVQLXGpHUQKgwG9kN_qgt-bTzAeWFxcEWs8VRfnpW9ZQjM5imziwcIioON0mvZdF1mNkOoezao4_XguALG4LVcLhCk5PzchuIhpBQv1yp5ODMwcueJbeoez5bMGZkVztPXUANiWY387labnN2HkHpPMtdqZIQO5OOpgT6UgwjzxEI41cu17nPoHNHy0UmuRAe3BQyEgHCjOrWTstFxmdMCFW7FmgJxiRtt3Y2VQ=w2394-h1596-no?authuser=0" alt="chapel" loading="lazy"><br>
+教堂名为Notre Dame，平日除了礼拜，多是承办婚礼。因为没去过，所以详细的也不甚了解。</p>
+<h1 id="小记">小记</h1>
+<p>算是一点生活点滴的记录吧。<br>
+下周就要期中考试了，这周末要好好复习了。学期初选了们图论，没想到竟然这么难。不过确没有这方面的基础啊。</p>
+
+            </div>
+            
+              <div class="reward-btn">
+                <div class="reward-btn-text">赞赏</div>
+              </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Yifei
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://yifeijing.github.io/post/mu-li-yu-ao-te-lai-si/" title="牡蛎与奥特莱斯">https://yifeijing.github.io/post/mu-li-yu-ao-te-lai-si/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://yifeijing.github.io/tag/vmzQFpxYJ/"># Life</a>
+    
+      <a href="https://yifeijing.github.io/tag/2afmUcoNE/"># Travel</a>
+    
+      <a href="https://yifeijing.github.io/tag/vxierjTt4F/"># Food</a>
+    
+      <a href="https://yifeijing.github.io/tag/WE31Lzv46/"># Chinese</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="十一月：取舍" href="https://yifeijing.github.io/post/shi-yi-yue-qu-she/">十一月：取舍</a>
+        <a class="nav-mobile-next" title="十一月：取舍" href="https://yifeijing.github.io/post/shi-yi-yue-qu-she/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -1170,6 +1461,229 @@
     parent.insertBefore(aelem, next);
   });
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+            <img id="zfb" class="reward-img" src="/media/images/custom-zfbImg.jpg" alt="赞赏码">
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">ウムー！</p>
+      <p class="reward-tip"> シャー</p>
+    </div>
+    <div class="bottom">
+      
+      <div id="zfbBtn" class="pay-text">
+        支付宝
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        jQuery.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        jQuery.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        jQuery.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        jQuery.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      jQuery.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      jQuery.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -1788,5 +2302,4 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!&lt;/p&g
                         const cn = new CanvasNest(document.querySelector('.snow-container'), config);
                       </script>
                       
-
 </html>
