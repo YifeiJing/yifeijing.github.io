@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-11-27T02:38:58.714Z</updated>
+    <updated>2021-11-27T13:46:10.845Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[香香]]></title>
+        <id>https://yifeijing.github.io/post/xiang-xiang/</id>
+        <link href="https://yifeijing.github.io/post/xiang-xiang/">
+        </link>
+        <updated>2021-11-27T14:15:50.000Z</updated>
+        <content type="html"><![CDATA[<p>周六晚上的学校食堂不开门，因此来学校的话通常只能选择提前买好便当。可惜昨天只买了一份且在中午吃了。晚上依然是在学校学习的预定下，就只能选择开车出去吃一顿回来。<br>
+打开Google地图，从学校的位置往城里拉，不由感叹这学校的位置真是偏僻---建在山顶上，往下走最近的只有一家便利店。放从前骑车的日子，那真是太辛苦了，绝对就直接回家了。现在可以开车了，就完全不一样了。本想去学研找个乌冬什么的来吃。往下滑的途中看到了曾经去过一次的“中华料理香香”。心想，菜单上有定食，直接来这里吃也行啊。叫上同在研究室的羊，一起去了。<br>
+从学校下山只花了七分钟左右就到了。因为已经过了七点，所以人不多，空位到处都有。坐下后，翻阅菜单。定食种类繁多，但真正称得上中餐的其实不多，我们点了青椒炒肉和回锅肉套餐。不到五分钟菜就来了。<br>
+典型的中餐日式搭配，除了青椒本身，还有紫菜鸡蛋汤，咸菜，沙拉，杏仁豆腐。这么多东西的价格是780円。米饭可以无限续，所以绝对能吃饱。其实这青椒炒肉的分量真的很多。我一共吃了<strong>三碗</strong>米饭，那盘肉丝还剩一半。加上那些配菜，吃的很撑。<br>
+<img src="https://lh3.googleusercontent.com/hvoPwW6nhNhRf2n6gKrjjMk5K5g4TIQvQ_rLWz0QMJ_RgACAhfHuvejJ-VJElmxNs5KCBYX7RLlwfD2d6OE_dGe0VrscNhobFVYgogQjiJARWcriwosQ-f2B1iRej6xM2LvAWzGgR0T1z1UHv2zzyXuirsQyA0ARo54RIzRgLOM2OD5TKVSVn28X0KZWwY1H6KzFDuTqbkHRAR1gf8DLhPIOxQZUim0P7GCtc2t9k1NSKBB2QccLoIG3lfrP7mJI7cRWDtOqZgjQvkb2ifeIaVPdxBv7b-84rMTGOu-HBmgwDVWoNhq9jslRQ94XGkbdaWJkr4xst-X35AlrI_v8aS7S0yG9tFnw3ckq7aOBZ5kyZHqcwu3HirWuWLvhHrGEwUne8bViJVw3IPKBSjhD4iBAaDmrFja7-DwK7f8635CYhKEoFjwxd1F5xuAC-GaufIUpg2aj7Xdfezi33Nvvfkyudq-D7Xa0iRpb_NGnDpJOZU6WhDkrEsY5WkxDYe1U6BRjYEqfTFY238LuWhx7UNEVLEbB74KUxXjvkgPt_45KRBr2hzGDUerUFKLacWgj0anHzVzmWrYfIMItWsvYrtf4o2Vvt_VspdPC-4bHfxhm4oDFYgROaePjUCRJb8TZwuD54zFE-gL7dUcuailjQV7t2wWHGITOkdttsByBA3avS1Zb4pa7-Ayo7ovMA6gBqD8tapbYgxoUf4bAqpRNsfc=w2880-h1378-no?authuser=0" alt="photo" loading="lazy"><br>
+非常满意！以后饿了，就选这里了！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[是做一世的懦夫，还是做一时的英雄]]></title>
         <id>https://yifeijing.github.io/post/qing-gan-ji-mie-zhi-mei/</id>
@@ -321,34 +335,6 @@ Buttttttt! Writing is a time-costing work. Anyway, try to be productive!</p>
 <p>S for <em>selection rule</em>, L for <em>linear</em> resolution, D for <em>definite</em> clauses.</p>
 <h3 id="method">Method</h3>
 <p><em>backtracking</em>: Pop the upper resolvent from the stack, and search for the next program clause</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hermann Hesse Quotes]]></title>
-        <id>https://yifeijing.github.io/post/hermann-hesse-quotes/</id>
-        <link href="https://yifeijing.github.io/post/hermann-hesse-quotes/">
-        </link>
-        <updated>2021-09-26T12:26:59.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>Hermann Hesse, a German-Swiss poet, novelist, has been deeply influenced me during the time of an undergraduate. The book <strong>Siddhartha</strong> has been my favorite book. This article is to include some famous quotes from him.</p>
-<h2 id="quotes">Quotes</h2>
-<ul>
-<li>If I know what love is, it is because of you.</li>
-<li>Some of us think holding on makes us strong; but sometimes it is letting go.</li>
-<li>If you hate a person, you hate something in him that is part of yourself. What isn't part of ourselves doesn't disturb us.</li>
-<li>The truth is lived, not taught.</li>
-<li>Happiness is a how; not a what. A talent, not an object.</li>
-<li>Eternity is a mere moment, just long enough for a joke.</li>
-<li>One never reaches home, but wherever friendly paths intersect the whole world looks like home for a time.</li>
-<li>Love of God is not always the same as love of good.</li>
-<li>The world is not imperfect or slowly evolving along a path to perfection. No, it is perfect at every moment, every sin already carries grace in it.</li>
-<li>Our mind is capable of passing beyond the dividing line we have drawn for it. Beyond the pairs of opposites of which the world consists, other, new insights begin.</li>
-<li>It may be important to great thinkers to examine the world, to explain and despise it. But I think it is only important to love the world, not to despise it, not for us to hate each other, but to be able to regard the world and ourselves and all beings with love, admiration and respect.</li>
-</ul>
-<h2 id="links">Links</h2>
-<p><a href="https://www.goodreads.com/quotes/tag/hermann-hesse">Goodreads</a><br>
-<a href="https://www.brainyquote.com/authors/hermann-hesse-quotes">BrainyQuotes</a><br>
-<a href="https://everydaypower.com/hermann-hesse-quotes/">EverydayPower</a></p>
 ]]></content>
     </entry>
 </feed>
