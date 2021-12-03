@@ -9,7 +9,7 @@
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
 <title>十一月：取舍 | Moriturus Te Saluto</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1638450139769">
+<link rel="shortcut icon" href="/favicon.ico?v=1638528843348">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -223,7 +223,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">12</span>
+        <span class="site-item-stat-count">13</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1501,6 +1501,24 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/"" data-c="
+          &lt;p&gt;Maybe you have found that my wechat profile photo has been changed to a picture full of ASCII characters but still the outline of people&#39;s face can be somehow figured out. Today, it changed to a new pattern, where the source code of the converter has been used as the fulfilling text.&lt;/p&gt;
+&lt;h2 id=&#34;the-mechanism&#34;&gt;The mechanism&lt;/h2&gt;
+&lt;p&gt;This program uses the image utilities of opencv, which decodes the input image file in to an array in the memory, so that the developer can manipulate based on the information of the picture. What has been useful is the automatic grayscale convert mode specified by method &lt;em&gt;imread&lt;/em&gt;, such that the convert from color image to a grayscaled image is just one step along with the image file decoding. Then, the magic is to specify the intervals of intensities and arrange a symbol for each interval, respectively. Because it is an ASCII art, output the symbols directly based one the interval is enough.&lt;/p&gt;
+&lt;h2 id=&#34;the-result&#34;&gt;The result&lt;/h2&gt;
+&lt;p&gt;At first, the symbols are specified by some marks like &#39;_&#39;, &#39;-&#39;, &#39;.&#39;, &#39;#&#39;, &#39;`&#39;, &#39;^&#39;, and each symbol actually indicates one interval of intensity. Using my original profile photo Alan:&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638528498677.jpeg&#34; alt=&#34;original profile photo&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+And the result is shown:&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638528533988.png&#34; alt=&#34;symbol result&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+The outline is clear from the difference of marks.&lt;br&gt;
+Today, I used the source code itself to fulfill the picture to make it somehow special. It now looks like this:&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638528642844.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;possible-improvement&#34;&gt;Possible improvement&lt;/h2&gt;
+&lt;p&gt;Highlight the language grammar. This is not hard to image, but the implementation is difficult, because both the language server and the highlight method are not easy to implement.&lt;/p&gt;
+">The retrogradation of profile photo</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/yamani/"" data-c="
