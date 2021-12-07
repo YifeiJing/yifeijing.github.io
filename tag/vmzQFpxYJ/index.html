@@ -9,7 +9,7 @@
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
 <title>Moriturus Te Saluto</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1638528843348">
+<link rel="shortcut icon" href="/favicon.ico?v=1638878778741">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -206,7 +206,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-count">14</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -262,6 +262,14 @@
       
       
       
+      
+      
+      
+      
+      
+      
+      
+      
       <a href="https://yifeijing.github.io/post/yamani/">
         <div class="motion-warpper">
           <div class="tag-post-node">
@@ -285,7 +293,7 @@
         <div class="motion-warpper">
           <div class="tag-post-node">
             <h1>
-              11-27
+              11-28
               <small>香香</small>
             </h1>
           </div>
@@ -1273,6 +1281,102 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/my-latex-configurations/"" data-c="
+          &lt;p&gt;Having used LaTeX for such a long time makes me feel it is necessary to summarise for me configuration for later uses and recommendations.&lt;/p&gt;
+&lt;h2 id=&#34;packages&#34;&gt;Packages&lt;/h2&gt;
+&lt;p&gt;Like any projects and languages, the most important thing is to use appropriate packages. I will introduce my own set of packages frequently used in writing essays and reports.&lt;/p&gt;
+&lt;h3 id=&#34;geometry&#34;&gt;Geometry&lt;/h3&gt;
+&lt;p&gt;If you have been using the default page layout for some time, you must have noticed that there are too many white space at the margin. The &lt;strong&gt;Geometry&lt;/strong&gt; package lets you change the page layout. Actually, it can change the length and layout of paper size, margins, footnote, header, orientation by simple configuratiions when including the package.&lt;/p&gt;
+&lt;p&gt;For my case, I would like to customize the space of top, bottom, left, right.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\usepackage[top=3cm, bottom=3.2cm, left=4cm, right=3cm]{geometry}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;hyperref&#34;&gt;Hyperref&lt;/h3&gt;
+&lt;p&gt;Because the main purpose of using LaTeX for me is to generate pdf files, which have excellent navigating tools, &lt;strong&gt;hyperref&lt;/strong&gt; provides all enough for cross-reference elements in the pdf.&lt;br&gt;
+When it is needed to cross-ref something, using the command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\hyperref[]{}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The compiler will handle all of the rest.&lt;/p&gt;
+&lt;p&gt;My configuration: (A sample of my dissertation)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\hypersetup{
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Modelling the Impact of Wind and EVs to the Power Grid in Orkney},    % title
+    pdfauthor={Yifei Jing},     % author
+    pdfsubject={Dissertation},   % subject of the document
+    pdfcreator={Yifei Jing},   % creator of the document
+    pdfproducer={Yifei Jing},
+    pdfkeywords={Data Science} {Power grid} {Electrical vehicles} {Simulation},
+    colorlinks,
+    linkcolor=violet,
+    citecolor=blue,
+    urlcolor=brown
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;graphicx&#34;&gt;Graphicx&lt;/h3&gt;
+&lt;p&gt;There is always the need to include figures, and this package handles the functions of importing figures into document. The command is simple: &lt;code&gt;\includegraphics[]{}&lt;/code&gt; though, it is always combined with the &lt;em&gt;figure&lt;/em&gt; environment.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\begin{figure}[ht]
+            \centerline{\includegraphics[scale=1]{cummulativewindcapacity}}
+            \caption{The cumulative wind power generation capacity between 2000 and 2019}
+            \label{fig_cummulative_wind_capacity}
+\end{figure}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This figure can be automatically numbered by LaTeX compiler, and referenced.&lt;/p&gt;
+&lt;p&gt;What needs to be concerned is the positioning configurations to the right part of the figure command.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Specifiers&lt;/th&gt;
+&lt;th&gt;Permission&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;h&lt;/td&gt;
+&lt;td&gt;Place the float &lt;em&gt;here&lt;/em&gt;. Approximately at the same point it occurs in the source text.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;t&lt;/td&gt;
+&lt;td&gt;Position at the &lt;em&gt;top&lt;/em&gt; of the page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;td&gt;Position at &lt;em&gt;bottom&lt;/em&gt; of the page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;p&lt;/td&gt;
+&lt;td&gt;Put on a special &lt;em&gt;page&lt;/em&gt; for floats only.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;!&lt;/td&gt;
+&lt;td&gt;Override internal parameters LaTeX uses for determining &amp;quot;good&amp;quot; float positions.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;However, the real usage is always combining &#39;htp&#39; together, while they have conflicting meanings. It is also needed to be notified that the &lt;em&gt;figure&lt;/em&gt; environment makes the float element, such that LaTeX will not break it into parts, and it will always select the best place to put it to some where. Therefore, &lt;a href=&#34;https://tex.stackexchange.com/questions/8625/force-figure-placement-in-text&#34;&gt;it is wise to directed include the picture into the document if the position of the figure is so important that it cannot be decided by LaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\usepackage{caption}
+...
+\noindent%
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\makebox[\linewidth]{%        to center the image
+  \includegraphics[keepaspectratio=true,scale=0.6]{slike/visina8}}
+\captionof{figure}{...}\label{visina8}%      only if needed  
+\end{minipage}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-LaTeX&#34;&gt;\begin{center}
+  \includegraphics[...]{slike/visina8}}
+\captionof{figure}{...}\label{visina8}%      only if needed  
+\end{center}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cite&#34;&gt;Cite&lt;/h3&gt;
+&lt;h3 id=&#34;multicolmultirow&#34;&gt;Multicol/Multirow&lt;/h3&gt;
+&lt;h3 id=&#34;tabulary&#34;&gt;Tabulary&lt;/h3&gt;
+">My LaTeX configurations</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/"" data-c="
           &lt;p&gt;Maybe you have found that my wechat profile photo has been changed to a picture full of ASCII characters but still the outline of people&#39;s face can be somehow figured out. Today, it changed to a new pattern, where the source code of the converter has been used as the fulfilling text.&lt;/p&gt;
 &lt;h2 id=&#34;the-mechanism&#34;&gt;The mechanism&lt;/h2&gt;
@@ -1294,18 +1398,18 @@ Today, I used the source code itself to fulfill the picture to make it somehow s
         <a class="result-title" style="opacity: 0;" href="https://yifeijing.github.io/post/yamani/"" data-c="
           &lt;p&gt;今天来到了位于学研堂吉柯德旁边的Yamani。这是一家居酒屋。最早并不知道这是一家居酒屋，只是从Google地图上的照片看到这家店有大块炸鸡和烤牛排，遂决定来这里尝尝。&lt;br&gt;
 先上菜单：&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/qNdjzQw5yzH0JQhKar7jVIlhVLNsGv_GmLLCpz-hEKnNskA2ywOFZmdZfa2bDhiwReU2z6ha7C2CUeEXXcsyQDd7r6F5jEaXQzkJK8W7oEEC3bQPO_h-k43FNFx1-QBfki7vAfSLuZGEII2ty_fej_NZjekF8PMU-xARLnlp190ElHGtdiLwD7Ucb-Q-ZDKYJbw-jeV_HfYyEsslWskmGpnuA5_PnI30OwYJ4nPO-IF-F7w2JhozsYaypBbOgcYB-ybjUNoVHyERiVCIsZ2819_53oAPBGV50JFwUR7F5elwxiVMtFeNUii8RVRqmERBf5LbLJz9AqMzSZF0og0ovsRQfwyL_73nWWp-XtQtC0POaL17SkBbBgysSuiLEs9V_hHkgBpufr375fobhI2zk1b6zLBI8XZ4qtNXfV2IHsC5z2EdCND6CpUaoL33QS-HRKR5PwZILRZz_kUcjznBStozDG0cSDcVvBxTWyhh8zwaZsLe6AppatRyg34qJUUjsqWMT29CSgT_7KFjgft4WMVNjL0sjyM2_Q5NTry7cZYBQ-8_FZKRAOjgvBPpT3njKjZPgtaTOWMrfFlhnaoc-MHmquJLhV6El_LHwYv6TFU7zTijq-yTnbykKNsr3kbXCqkbHL3ZE37aPfE6AeJTnagGh3TPu3SvEu6iuSL_unXLiLZdAFeF02QJCz13jVtdxlPSPO7Don486es0AJbIvCs=w2880-h1378-no?authuser=0&#34; alt=&#34;menu1&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/x5ULBsJqek3IttsoMtZ5GatO5YI4OV3kM2itKuxkubX1XghIeeVZGBWWfzl6IQszb87oAG43moBJkVn545SOeaiRA71URnlh1gd_fBx7bpNVpK2qCoa0oU3cTZizPK8XKxIvIeJcgEVC1ExN7aEzjs4VwZzxZlKOUKbPbDAuuaiU4OjhMc_ilrnLOctupvZzRXgg4G2AON5HacK-HVoE5JL08XHTmIqexxf_09B0KFFqN5Rgob_akZiwDnE9ERBcQYO7UMF29-bcaX4nkPt2J0Lg_xiv7XhcZBBdZ4Dz1O7xyzVNwMXEKQ0MuU2PJS0fZdy5BO-82cY3f3sBE03YHSXbisjMIU3auMBdWKyZJGlvexWKtZ1biRxWaGVyTIO-XXdEmML-3rLEVP0J75cHHIJOy18U3U4H_QNYPEryNOMjYrfFGBrEnTu-APVkeyV0JdDQmth3nx_hDyz_Qiaibn5dzphtXDjxztzNBtxprs6Fs40sEH_K6KuWnmLOA6tbGQpyE8Ra775npQ0T0Am-JoIT3yog7CqtYrX26lnzsqsMN7ahTnI1qLhc4B2B_vz1FBTFGWb8l7vOCFR_np6XPcobIw-_7mc-5U2i2UaIT2v4F0elORMouD2gatXVX8Zsn1PP3lT3WsTLmdxN9HX7QIdXkOhVKhe9apikcTmsVn86WD80zlJzegB1bEmrzTKuP6sVJJjr_Ln8y0vVv3wc5cQ=w2880-h1378-no?authuser=0&#34; alt=&#34;menu2&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-因为是自营式的居酒屋，所以别具一格的手写菜单让人眼前一亮。这手写体在日本也是算上书法了，所以读起来很舒服。只是问题是对于外国人而言，更希望文字与图片组合起来，这样印象更加直观，也不需要花时间一点一点读那些说明了。话说回来，因为图片给人的信息更多，所以大家都习惯看图了，便读不下来稍长的文字，难以想想文字描述的画面了。这到底是好事还是坏事呢？&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878391011.jpg&#34; alt=&#34;menu 1&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878407526.jpg&#34; alt=&#34;menu 2&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+因为是自营式的居酒屋，所以别具一格的手写菜单让人眼前一亮。这手写体在日本也是算上书法了，所以读起来很舒服。只是问题是对于外国人而言，更希望文字与图片组合起来，这样印象更加直观，也不需要花时间一点一点读那些说明了。话说回来，因为图片给人的信息更多，所以大家都习惯看图了，便读不下来稍长的文字，难以想象文字描述的画面了。这到底是好事还是坏事呢？&lt;br&gt;
 店不大，大概最多容纳二十人的样子，可是菜单的名目还是很多的。有橙色线的都是推荐菜品。我点了首页推荐的「名物ほんみ」和「塩煮込み」这两样。第一个是个炸鸡，炸半只鸡，上来很大一块。&lt;br&gt;
 如图：&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/Hk1fQATSKVAJib0g9ays9J2Yt-NfjbEMI4QMyia5nSxEO4J1mSLqaif3nlt36nAlEYvTxLlF7rr9wDoQvecKScNcEUh3wT-d0TOXhjyxwOJPjx2R5sVH4avtsRNxcGBqhuu0VI8Xvl2u3Ds-rYjxx0u-f_PH_UrFSvds6i-2l9VRI68_HX-mnv1IPxnSj3_VVwhVp8y-pH8svdJujA7Z3XnM4c1zZ6Q3aLdrujbOpgE69PG7d_d5-gJ9xkd5gNTQ7Xub9o8OMhz-HshjIQDDKegyXCTyLxKoJUzgJLHElIYR0oChUASq0ZQRV_BuYMITeDYpEzXAuc66RTRe-SJSpBXkYQQcJofl01sL-Z77R380AntU5pG_F41ot-O2DXUD6yZw5DjUZPu2FqwEToDpYJSLDpMShqeZ2w9N72-IhPC6OCqma8LBVX1iWXW2_x0vK_CXEF7vKdngMLkUXEcsj8qnI9L-ZlGRktGa3_TifrtMiv-HbP9suoVbfCD1AFvcTbln0upaIvr4jzWhXJvdt2FmUtJq7cvgVkNft1-OVmIc-cCRp8I8TwaKxum4Pzj80LRXYvoSvh8u7PmvFBInQLkRWqnVZ2WTDKz3vV3xtXGqpjSyD8fMEkKfvHrv6rMPgdg7s2Hgoou-5gIUjCJUjB0OqjMd25Pwz2HONiXZ1dFiywFsBlJGMuJBEPF-twE0eSgBkV8KiKqaz7QsUOwGils=w2880-h1378-no?authuser=0&#34; alt=&#34;chicken&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878431644.jpg&#34; alt=&#34;fried chicken&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 这是服务员帮忙剪开过的样子，本来是一整个。第一眼看就很想吃。实际吃起来的话，实际上更喜欢小块炸鸡。因为一下炸一大块的话，不同部位的鸡肉无法凸显自己的优势。值得一提的是，炸鸡胸肉确实不太好吃，太柴了。所以，单炸一个鸡腿还是比较推荐的。&lt;br&gt;
 接下来是煮物，只是一个用盐煮的和牛肉以及各种食材。&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/l9l1Lv_XXkgItp2jlH6TlJnu2UvW0XqqvxUoH0GI1i6T8yfWbM1aGbCSUYNkLR91G0NCveoo_hteTWe89EjFs3TEsUVWS0yUsmPR1YgEE9aJ_KqLYd1eD_CRN0IfM4HJFU_DrmXv-v-GTnDkHQJTVWjB6FVW4-QISWoyhnyiPi5cyHPH5JKpvkP6SzJeuFpaudUWMjzOYQEy9S0ig7Djp6HxkBBpO3B0BqRUai5kRu8bzNFRpORRsotjdVyVgUyEKvqtmjkMJGhmOLuyQOyXSeD1N7HlFmn_aPmalVP5bGg6ON7eQh1DhNl_8VpAWGYZSuFQz2RiNQ102QoOq3OZlGIqb7ZCGhTMXWMHBoIPzu_UkXk_HxeZtXpTHSr3UzVdqC3Nf_G9YuX3qU7FK1zyC6Q_5B4TP-CZlViqAdAvrl_vieWFrYN_ELTithA1tObNML0ffhRvZqzoGjUoVGWSfAibnY5_wyDEl0nBmPudlTMlbPY0PCxIl3wJ45VZrD0qwZ5I85GWM0Rxk-xhi23yab0O7fAm9jdxqyFhs-ag68t4iL3cot66YsXn-_Nj0gRie307aXVns61pikH13oWsdhiKEdqBL9FgUb2AkVA8I5t1VvCS-bKXgI27OVaNppppZsGDS2Hat_41kPvyNkDE6xiPmRW2HnjBWEAxyBibpZE47ywzLXa0fD6jdvFBoBTdIQZnlBU03Fuvtn5_fHYYZ6I=w2880-h1378-no?authuser=0&#34; alt=&#34;soup&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878459595.jpg&#34; alt=&#34;soup&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 从照片也能感觉到，里面的品类很丰富；豆腐、山药、萝卜。。。吃起来也很有味道，属于进店必尝了。只是因为是盐煮，所以汤会很咸。&lt;br&gt;
 接下来是牛排，这是来这里之前非常吸引我的一道菜，朋友点了一道，所以拍了一张。&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/-gPsJjg0sI0QtU3i2C8kWgpdw6aUk_WATUDW0s4jwqdhaw02psVxpqPllJS9Tr3fUkGuUacfjcHq8FPqO1GQGP8daJi9PXDKz0_NsbfM6eTdMnbh78Um_hRcVekDeytjiQM12cOG8VTOr4UC22gqsSSU6PH9roJEQOWAXovwpl3Js5yDY9oRL1-6rkuYfw1l-kKSyb7vwXi7xz9cevOB02dWbkvhalTrQpg3u1I0WIEY_gOH3o0ua1J7b8ftQnyKbiU0OoIeNWHzn5_07i-g3_4P0BruU_NwtcGXvnP-lfhl8zkLgTnWUErnqN7nbia4PgKhyffqXcg7dtwXYrI-89EJ3vmsQwOAwxVKYPZT3o04gnzaUEzKYAtj05yTI6ViZcJb6oQ-IjtcxhYQxiw_55om5fqqmESOPZHbjukFlgwDpwMTbfYNR3nEHlOZ6h5cYmStFlrk11A8BA2aO5lENW1z4RY2eCYq6EgCvAbPNuhZtcawbxFptiog2xiKN6AUTExDoS32kgX5Jv7Ch_N12BiaAEyxMmzqJ3X-mUolC5nv0UrrcS9w4ima3V-B9bW5h5SaaO9kBIk2KGTE1r8cEN8clyGXQ7YDfVwomO0W4S9BQcsYmkXs1NJyOFeBDloa9cR_9aYGg6_KIo2s1Kj8XyDmvSOMkgNOHppa3ju15K2Oa2HXdknVRYt-mD-6ibNltb3KyMHlnD8sPqkd_RJutZw=w2880-h1378-no?authuser=0&#34; alt=&#34;beef steak&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878472315.jpg&#34; alt=&#34;beef steak&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 可以说烤的很有水平了，因为烤出了三层颜色。这样就可以尝到由外而内有层次的味道。此外还配有芥末，柠檬和烧烤酱，所以可以体会不同的细节。&lt;br&gt;
 然而，这是家居酒屋，所以其实是来喝酒的。光是酒就单独列了另外一个菜单。有自己制作的特色梅子酒和果酒，很值得一尝。朋友尝了之后感觉是来这里吃的最好吃的东西。。。可惜我开车，所以不能喝酒，下次就骑车来了。&lt;br&gt;
 总结来说，很值得一尝的一家店。特色鲜明。因为是居酒屋，适合和几个朋友一起来边聊边吃。追求饱腹的话，其实不大推荐，因为没有主食，只是吃菜的话消费是很高的。平均一人3000円。&lt;/p&gt;
@@ -1318,7 +1422,7 @@ Today, I used the source code itself to fulfill the picture to make it somehow s
 打开Google地图，从学校的位置往城里拉，不由感叹这学校的位置真是偏僻---建在山顶上，往下走最近的只有一家便利店。放从前骑车的日子，那真是太辛苦了，绝对就直接回家了。现在可以开车了，就完全不一样了。本想去学研找个乌冬什么的来吃。往下滑的途中看到了曾经去过一次的“中华料理香香”。心想，菜单上有定食，直接来这里吃也行啊。叫上同在研究室的羊，一起去了。&lt;br&gt;
 从学校下山只花了七分钟左右就到了。因为已经过了七点，所以人不多，空位到处都有。坐下后，翻阅菜单。定食种类繁多，但真正称得上中餐的其实不多，我们点了青椒炒肉和回锅肉套餐。不到五分钟菜就来了。&lt;br&gt;
 典型的中餐日式搭配，除了青椒本身，还有紫菜鸡蛋汤，咸菜，沙拉，杏仁豆腐。这么多东西的价格是780円。米饭可以无限续，所以绝对能吃饱。其实这青椒炒肉的分量真的很多。我一共吃了&lt;strong&gt;三碗&lt;/strong&gt;米饭，那盘肉丝还剩一半。加上那些配菜，吃的很撑。&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/hvoPwW6nhNhRf2n6gKrjjMk5K5g4TIQvQ_rLWz0QMJ_RgACAhfHuvejJ-VJElmxNs5KCBYX7RLlwfD2d6OE_dGe0VrscNhobFVYgogQjiJARWcriwosQ-f2B1iRej6xM2LvAWzGgR0T1z1UHv2zzyXuirsQyA0ARo54RIzRgLOM2OD5TKVSVn28X0KZWwY1H6KzFDuTqbkHRAR1gf8DLhPIOxQZUim0P7GCtc2t9k1NSKBB2QccLoIG3lfrP7mJI7cRWDtOqZgjQvkb2ifeIaVPdxBv7b-84rMTGOu-HBmgwDVWoNhq9jslRQ94XGkbdaWJkr4xst-X35AlrI_v8aS7S0yG9tFnw3ckq7aOBZ5kyZHqcwu3HirWuWLvhHrGEwUne8bViJVw3IPKBSjhD4iBAaDmrFja7-DwK7f8635CYhKEoFjwxd1F5xuAC-GaufIUpg2aj7Xdfezi33Nvvfkyudq-D7Xa0iRpb_NGnDpJOZU6WhDkrEsY5WkxDYe1U6BRjYEqfTFY238LuWhx7UNEVLEbB74KUxXjvkgPt_45KRBr2hzGDUerUFKLacWgj0anHzVzmWrYfIMItWsvYrtf4o2Vvt_VspdPC-4bHfxhm4oDFYgROaePjUCRJb8TZwuD54zFE-gL7dUcuailjQV7t2wWHGITOkdttsByBA3avS1Zb4pa7-Ayo7ovMA6gBqD8tapbYgxoUf4bAqpRNsfc=w2880-h1378-no?authuser=0&#34; alt=&#34;photo&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878591404.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 非常满意！以后饿了，就选这里了！&lt;/p&gt;
 ">香香</a>
       </div>
@@ -1350,7 +1454,7 @@ It is not our abilities that show what we truly are. It is our choices. --- Harr
 我没有吃海鲜的习惯，更确切的说，除了常见的虾和鱼，剩下的几乎没有吃过。所以此次出行完全是因为好奇和建议。&lt;br&gt;
 拉上三个朋友，去了位于糸島西边的船越。那里是渔港，所以有很多鱼料理。现在正是产牡蛎的季节，所以所有的店铺都是卖牡蛎。我们来到了叫做豊漁丸的一家店。店内的摆设都是带有烤架的桌子。然后点菜，我以为牡蛎只是配菜之一，没想到是主菜。确切的说，全是牡蛎，唯一能被称得上主食的炒饭也是牡蛎炒饭。我们点了4盛，1盛有12个牡蛎，所以是48个。原因是云说上次一个人吃了2盛。&lt;br&gt;
 点上火，就可以开始烤了。具体的样子如下图。&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/er7Wz6nlyuuDmKHCYm5IaMYAIB4CF_Iw-54uEt37knYPW0qIY43sC-aZLaCkQ3UbO4MewrkwcxYNT1mPO_xJPNgn8Y_aVgwhfx0N16CnO0tviv962zvIkgOwLQRy2gDq2RFay2DIMJvLj1CRcexyLmkKRSaI2T0bTKXRpG9ZeBs7I8xc3w74KAljEySVu7gV-CjYlEg-pPYhgZxWSTwOjoXaxopkiEAhArEXgNe8L2qPszfc0rQUKzHWLrdy7wvgsX3KSTUDLAex1NRwxrfyTrYZwIQXQakn_Lsu-gGAIKzLMZTITf5VhZnEfRJYT8KYZzsAE1XSoOnv-nN3KYNIsIM6kdGU0Pt4qc7CgeujbIOEuidlIAGQLUGuKrH4e4Jv3A1LGI_NMdgUN8zemuZqS7dsWiLCRtDyshCrbhQ-JC_OUPva2Pu1sIYJcTej0sZhucfzx88fRecofZQHiDX-TawpFR1BQWFWpWQbm9zheMjj_ZzyVKTFMQefFR_PQFIzDLoL8ie9cMkNWil5QBSQQGH7G1dzOKIa2-jVXKNVVKFJwLTMjZlD7a1dLdyxKAr06kfc61FrFo65FGjERMhPjYwvU22PKr63z48UsHBZPn_fLjK_xkQmLoVeht7aiqQHtO2B2rhp04WFGtcIzvOjqYr1mBcDJ0xxpEoDFBYVz-zyRHepw13CrTpeLwn_uBFWGTb5tc7lf7H0PkgrMBPcszY=w2880-h1378-no?authuser=0&#34; alt=&#34;kaki&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878671790.jpg&#34; alt=&#34;kaki&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 直接将端上来的活牡蛎放在烤架上，什么预先准备都不用，甚至不用洗。。。活牡蛎的壳是紧闭的，而死了之后就会张开。随着牡蛎被烤死，就会有些牡蛎的壳自然张开，这时就可以吃了。然而终究没那么简单，因为有部分牡蛎烤熟了也不开壳，这就导致知道里面烤焦了才发现。烤好后，掰开壳，就能看到牡蛎的肉了，倒上酱汁，味道不错。我们拿到了&lt;strong&gt;大蒜黄油&lt;/strong&gt;，明太子，还有酱油。之后一致同意大蒜黄油是最好吃的。&lt;br&gt;
 除此之外，其实还点了鱿鱼，一人一整只切好的，然后放在架子上烤好了沾上蛋黄酱吃，味道也非常好。&lt;br&gt;
 然而这顿饭唯一的缺点终究是成也牡蛎，败也牡蛎。这本来挺好吃的东西，但是支持这个的话，就像吃巧克力一样，刚开始很棒，后来就觉得很齁。无论什么吃多了都会不太好。我当晚就觉得头剧痛，前所未有的痛，因此只能十点早早休息了。&lt;br&gt;
@@ -1364,7 +1468,7 @@ It is not our abilities that show what we truly are. It is our choices. --- Harr
 &lt;img src=&#34;https://yifeijing.github.io/post-images/1637930017124.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 都是打折断码品，所以价格都减半或以上的卖。虽然说是低廉的价格了，换算成人命币还是不便宜了。花了将近1万完成了任务，这趟来的还是很值的。&lt;br&gt;
 下午四点钟左右来的，走的时候已经是七点了。天完全黑了以后，停车场旁边的一座教堂显得甚是庄严标志，用带在手边的Canon EOS拍了几张。&lt;br&gt;
-&lt;img src=&#34;https://lh3.googleusercontent.com/ezEz_W0DGwmytUPA97wovODvU8SUNvf-3xcssAM-fcmibK7vJUIp6UBeP9DNRnu5VoCWr3TKL3QJxqUM3Sf1Ao5OTsG_fHUEw6-vUnlUP3WaHNbTYdFTmE7XlqLJNjIf1y0hxmpr1eMkYm6XgCo50YNyNhXcR_9uQ72BiJMc6sZlrAcyizNbJyVA8UozFSi_Vxhr8Zhg4ibxMhKEa1K8wq3sTnKZZL8S66clKt-dS2HmgcR_XIg53JcDcJXa42rrz3l9hcc57xjzm3Dt1qA91mwF3TWce0YZNPG4obS1-xB3jZQdVdsBOR_D3AYmmya427c9HukjQReImMKDs-PUmn77L2rOUQDcl_TqAaqt32P0xP2fmON46ZSHKh4cIUB-OLgQVBY6KY38gXPsPt4wIvwxgjVm3WBrxRUFGT6LZyy71vfZZ0MCB32dBGZHCdfBajGrIqYbTO4EbDHNDOj53fICxCxuJMmT2hd-4-t6daFCBR1ixVQLXGpHUQKgwG9kN_qgt-bTzAeWFxcEWs8VRfnpW9ZQjM5imziwcIioON0mvZdF1mNkOoezao4_XguALG4LVcLhCk5PzchuIhpBQv1yp5ODMwcueJbeoez5bMGZkVztPXUANiWY387labnN2HkHpPMtdqZIQO5OOpgT6UgwjzxEI41cu17nPoHNHy0UmuRAe3BQyEgHCjOrWTstFxmdMCFW7FmgJxiRtt3Y2VQ=w2394-h1596-no?authuser=0&#34; alt=&#34;chapel&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yifeijing.github.io/post-images/1638878683911.jpg&#34; alt=&#34;chapel&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 教堂名为Notre Dame，平日除了礼拜，多是承办婚礼。因为没去过，所以详细的也不甚了解。&lt;/p&gt;
 &lt;h1 id=&#34;小记&#34;&gt;小记&lt;/h1&gt;
 &lt;p&gt;算是一点生活点滴的记录吧。&lt;br&gt;

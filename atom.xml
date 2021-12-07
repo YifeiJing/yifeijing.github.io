@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-12-03T10:54:06.904Z</updated>
+    <updated>2021-12-07T12:06:25.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -10,6 +10,105 @@
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[My LaTeX configurations]]></title>
+        <id>https://yifeijing.github.io/post/my-latex-configurations/</id>
+        <link href="https://yifeijing.github.io/post/my-latex-configurations/">
+        </link>
+        <updated>2021-12-06T03:51:26.000Z</updated>
+        <content type="html"><![CDATA[<p>Having used LaTeX for such a long time makes me feel it is necessary to summarise for me configuration for later uses and recommendations.</p>
+<h2 id="packages">Packages</h2>
+<p>Like any projects and languages, the most important thing is to use appropriate packages. I will introduce my own set of packages frequently used in writing essays and reports.</p>
+<h3 id="geometry">Geometry</h3>
+<p>If you have been using the default page layout for some time, you must have noticed that there are too many white space at the margin. The <strong>Geometry</strong> package lets you change the page layout. Actually, it can change the length and layout of paper size, margins, footnote, header, orientation by simple configuratiions when including the package.</p>
+<p>For my case, I would like to customize the space of top, bottom, left, right.</p>
+<pre><code class="language-LaTeX">\usepackage[top=3cm, bottom=3.2cm, left=4cm, right=3cm]{geometry}
+</code></pre>
+<h3 id="hyperref">Hyperref</h3>
+<p>Because the main purpose of using LaTeX for me is to generate pdf files, which have excellent navigating tools, <strong>hyperref</strong> provides all enough for cross-reference elements in the pdf.<br>
+When it is needed to cross-ref something, using the command:</p>
+<pre><code class="language-LaTeX">\hyperref[]{}
+</code></pre>
+<p>The compiler will handle all of the rest.</p>
+<p>My configuration: (A sample of my dissertation)</p>
+<pre><code class="language-LaTeX">\hypersetup{
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Modelling the Impact of Wind and EVs to the Power Grid in Orkney},    % title
+    pdfauthor={Yifei Jing},     % author
+    pdfsubject={Dissertation},   % subject of the document
+    pdfcreator={Yifei Jing},   % creator of the document
+    pdfproducer={Yifei Jing},
+    pdfkeywords={Data Science} {Power grid} {Electrical vehicles} {Simulation},
+    colorlinks,
+    linkcolor=violet,
+    citecolor=blue,
+    urlcolor=brown
+}
+</code></pre>
+<h3 id="graphicx">Graphicx</h3>
+<p>There is always the need to include figures, and this package handles the functions of importing figures into document. The command is simple: <code>\includegraphics[]{}</code> though, it is always combined with the <em>figure</em> environment.</p>
+<pre><code class="language-LaTeX">\begin{figure}[ht]
+            \centerline{\includegraphics[scale=1]{cummulativewindcapacity}}
+            \caption{The cumulative wind power generation capacity between 2000 and 2019}
+            \label{fig_cummulative_wind_capacity}
+\end{figure}
+</code></pre>
+<p>This figure can be automatically numbered by LaTeX compiler, and referenced.</p>
+<p>What needs to be concerned is the positioning configurations to the right part of the figure command.</p>
+<table>
+<thead>
+<tr>
+<th>Specifiers</th>
+<th>Permission</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>Place the float <em>here</em>. Approximately at the same point it occurs in the source text.</td>
+</tr>
+<tr>
+<td>t</td>
+<td>Position at the <em>top</em> of the page.</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Position at <em>bottom</em> of the page.</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Put on a special <em>page</em> for floats only.</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Override internal parameters LaTeX uses for determining &quot;good&quot; float positions.</td>
+</tr>
+</tbody>
+</table>
+<p>However, the real usage is always combining 'htp' together, while they have conflicting meanings. It is also needed to be notified that the <em>figure</em> environment makes the float element, such that LaTeX will not break it into parts, and it will always select the best place to put it to some where. Therefore, <a href="https://tex.stackexchange.com/questions/8625/force-figure-placement-in-text">it is wise to directed include the picture into the document if the position of the figure is so important that it cannot be decided by LaTeX</a>.</p>
+<pre><code class="language-LaTeX">\usepackage{caption}
+...
+\noindent%
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\makebox[\linewidth]{%        to center the image
+  \includegraphics[keepaspectratio=true,scale=0.6]{slike/visina8}}
+\captionof{figure}{...}\label{visina8}%      only if needed  
+\end{minipage}
+</code></pre>
+<p>or</p>
+<pre><code class="language-LaTeX">\begin{center}
+  \includegraphics[...]{slike/visina8}}
+\captionof{figure}{...}\label{visina8}%      only if needed  
+\end{center}
+</code></pre>
+<h3 id="cite">Cite</h3>
+<h3 id="multicolmultirow">Multicol/Multirow</h3>
+<h3 id="tabulary">Tabulary</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[The retrogradation of profile photo]]></title>
         <id>https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/</id>
@@ -36,21 +135,21 @@ Today, I used the source code itself to fulfill the picture to make it somehow s
         <id>https://yifeijing.github.io/post/yamani/</id>
         <link href="https://yifeijing.github.io/post/yamani/">
         </link>
-        <updated>2021-12-02T13:23:26.000Z</updated>
+        <updated>2021-12-02T14:23:26.000Z</updated>
         <content type="html"><![CDATA[<p>今天来到了位于学研堂吉柯德旁边的Yamani。这是一家居酒屋。最早并不知道这是一家居酒屋，只是从Google地图上的照片看到这家店有大块炸鸡和烤牛排，遂决定来这里尝尝。<br>
 先上菜单：<br>
-<img src="https://lh3.googleusercontent.com/qNdjzQw5yzH0JQhKar7jVIlhVLNsGv_GmLLCpz-hEKnNskA2ywOFZmdZfa2bDhiwReU2z6ha7C2CUeEXXcsyQDd7r6F5jEaXQzkJK8W7oEEC3bQPO_h-k43FNFx1-QBfki7vAfSLuZGEII2ty_fej_NZjekF8PMU-xARLnlp190ElHGtdiLwD7Ucb-Q-ZDKYJbw-jeV_HfYyEsslWskmGpnuA5_PnI30OwYJ4nPO-IF-F7w2JhozsYaypBbOgcYB-ybjUNoVHyERiVCIsZ2819_53oAPBGV50JFwUR7F5elwxiVMtFeNUii8RVRqmERBf5LbLJz9AqMzSZF0og0ovsRQfwyL_73nWWp-XtQtC0POaL17SkBbBgysSuiLEs9V_hHkgBpufr375fobhI2zk1b6zLBI8XZ4qtNXfV2IHsC5z2EdCND6CpUaoL33QS-HRKR5PwZILRZz_kUcjznBStozDG0cSDcVvBxTWyhh8zwaZsLe6AppatRyg34qJUUjsqWMT29CSgT_7KFjgft4WMVNjL0sjyM2_Q5NTry7cZYBQ-8_FZKRAOjgvBPpT3njKjZPgtaTOWMrfFlhnaoc-MHmquJLhV6El_LHwYv6TFU7zTijq-yTnbykKNsr3kbXCqkbHL3ZE37aPfE6AeJTnagGh3TPu3SvEu6iuSL_unXLiLZdAFeF02QJCz13jVtdxlPSPO7Don486es0AJbIvCs=w2880-h1378-no?authuser=0" alt="menu1" loading="lazy"><br>
-<img src="https://lh3.googleusercontent.com/x5ULBsJqek3IttsoMtZ5GatO5YI4OV3kM2itKuxkubX1XghIeeVZGBWWfzl6IQszb87oAG43moBJkVn545SOeaiRA71URnlh1gd_fBx7bpNVpK2qCoa0oU3cTZizPK8XKxIvIeJcgEVC1ExN7aEzjs4VwZzxZlKOUKbPbDAuuaiU4OjhMc_ilrnLOctupvZzRXgg4G2AON5HacK-HVoE5JL08XHTmIqexxf_09B0KFFqN5Rgob_akZiwDnE9ERBcQYO7UMF29-bcaX4nkPt2J0Lg_xiv7XhcZBBdZ4Dz1O7xyzVNwMXEKQ0MuU2PJS0fZdy5BO-82cY3f3sBE03YHSXbisjMIU3auMBdWKyZJGlvexWKtZ1biRxWaGVyTIO-XXdEmML-3rLEVP0J75cHHIJOy18U3U4H_QNYPEryNOMjYrfFGBrEnTu-APVkeyV0JdDQmth3nx_hDyz_Qiaibn5dzphtXDjxztzNBtxprs6Fs40sEH_K6KuWnmLOA6tbGQpyE8Ra775npQ0T0Am-JoIT3yog7CqtYrX26lnzsqsMN7ahTnI1qLhc4B2B_vz1FBTFGWb8l7vOCFR_np6XPcobIw-_7mc-5U2i2UaIT2v4F0elORMouD2gatXVX8Zsn1PP3lT3WsTLmdxN9HX7QIdXkOhVKhe9apikcTmsVn86WD80zlJzegB1bEmrzTKuP6sVJJjr_Ln8y0vVv3wc5cQ=w2880-h1378-no?authuser=0" alt="menu2" loading="lazy"><br>
-因为是自营式的居酒屋，所以别具一格的手写菜单让人眼前一亮。这手写体在日本也是算上书法了，所以读起来很舒服。只是问题是对于外国人而言，更希望文字与图片组合起来，这样印象更加直观，也不需要花时间一点一点读那些说明了。话说回来，因为图片给人的信息更多，所以大家都习惯看图了，便读不下来稍长的文字，难以想想文字描述的画面了。这到底是好事还是坏事呢？<br>
+<img src="https://yifeijing.github.io/post-images/1638878391011.jpg" alt="menu 1" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878407526.jpg" alt="menu 2" loading="lazy"><br>
+因为是自营式的居酒屋，所以别具一格的手写菜单让人眼前一亮。这手写体在日本也是算上书法了，所以读起来很舒服。只是问题是对于外国人而言，更希望文字与图片组合起来，这样印象更加直观，也不需要花时间一点一点读那些说明了。话说回来，因为图片给人的信息更多，所以大家都习惯看图了，便读不下来稍长的文字，难以想象文字描述的画面了。这到底是好事还是坏事呢？<br>
 店不大，大概最多容纳二十人的样子，可是菜单的名目还是很多的。有橙色线的都是推荐菜品。我点了首页推荐的「名物ほんみ」和「塩煮込み」这两样。第一个是个炸鸡，炸半只鸡，上来很大一块。<br>
 如图：<br>
-<img src="https://lh3.googleusercontent.com/Hk1fQATSKVAJib0g9ays9J2Yt-NfjbEMI4QMyia5nSxEO4J1mSLqaif3nlt36nAlEYvTxLlF7rr9wDoQvecKScNcEUh3wT-d0TOXhjyxwOJPjx2R5sVH4avtsRNxcGBqhuu0VI8Xvl2u3Ds-rYjxx0u-f_PH_UrFSvds6i-2l9VRI68_HX-mnv1IPxnSj3_VVwhVp8y-pH8svdJujA7Z3XnM4c1zZ6Q3aLdrujbOpgE69PG7d_d5-gJ9xkd5gNTQ7Xub9o8OMhz-HshjIQDDKegyXCTyLxKoJUzgJLHElIYR0oChUASq0ZQRV_BuYMITeDYpEzXAuc66RTRe-SJSpBXkYQQcJofl01sL-Z77R380AntU5pG_F41ot-O2DXUD6yZw5DjUZPu2FqwEToDpYJSLDpMShqeZ2w9N72-IhPC6OCqma8LBVX1iWXW2_x0vK_CXEF7vKdngMLkUXEcsj8qnI9L-ZlGRktGa3_TifrtMiv-HbP9suoVbfCD1AFvcTbln0upaIvr4jzWhXJvdt2FmUtJq7cvgVkNft1-OVmIc-cCRp8I8TwaKxum4Pzj80LRXYvoSvh8u7PmvFBInQLkRWqnVZ2WTDKz3vV3xtXGqpjSyD8fMEkKfvHrv6rMPgdg7s2Hgoou-5gIUjCJUjB0OqjMd25Pwz2HONiXZ1dFiywFsBlJGMuJBEPF-twE0eSgBkV8KiKqaz7QsUOwGils=w2880-h1378-no?authuser=0" alt="chicken" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878431644.jpg" alt="fried chicken" loading="lazy"><br>
 这是服务员帮忙剪开过的样子，本来是一整个。第一眼看就很想吃。实际吃起来的话，实际上更喜欢小块炸鸡。因为一下炸一大块的话，不同部位的鸡肉无法凸显自己的优势。值得一提的是，炸鸡胸肉确实不太好吃，太柴了。所以，单炸一个鸡腿还是比较推荐的。<br>
 接下来是煮物，只是一个用盐煮的和牛肉以及各种食材。<br>
-<img src="https://lh3.googleusercontent.com/l9l1Lv_XXkgItp2jlH6TlJnu2UvW0XqqvxUoH0GI1i6T8yfWbM1aGbCSUYNkLR91G0NCveoo_hteTWe89EjFs3TEsUVWS0yUsmPR1YgEE9aJ_KqLYd1eD_CRN0IfM4HJFU_DrmXv-v-GTnDkHQJTVWjB6FVW4-QISWoyhnyiPi5cyHPH5JKpvkP6SzJeuFpaudUWMjzOYQEy9S0ig7Djp6HxkBBpO3B0BqRUai5kRu8bzNFRpORRsotjdVyVgUyEKvqtmjkMJGhmOLuyQOyXSeD1N7HlFmn_aPmalVP5bGg6ON7eQh1DhNl_8VpAWGYZSuFQz2RiNQ102QoOq3OZlGIqb7ZCGhTMXWMHBoIPzu_UkXk_HxeZtXpTHSr3UzVdqC3Nf_G9YuX3qU7FK1zyC6Q_5B4TP-CZlViqAdAvrl_vieWFrYN_ELTithA1tObNML0ffhRvZqzoGjUoVGWSfAibnY5_wyDEl0nBmPudlTMlbPY0PCxIl3wJ45VZrD0qwZ5I85GWM0Rxk-xhi23yab0O7fAm9jdxqyFhs-ag68t4iL3cot66YsXn-_Nj0gRie307aXVns61pikH13oWsdhiKEdqBL9FgUb2AkVA8I5t1VvCS-bKXgI27OVaNppppZsGDS2Hat_41kPvyNkDE6xiPmRW2HnjBWEAxyBibpZE47ywzLXa0fD6jdvFBoBTdIQZnlBU03Fuvtn5_fHYYZ6I=w2880-h1378-no?authuser=0" alt="soup" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878459595.jpg" alt="soup" loading="lazy"><br>
 从照片也能感觉到，里面的品类很丰富；豆腐、山药、萝卜。。。吃起来也很有味道，属于进店必尝了。只是因为是盐煮，所以汤会很咸。<br>
 接下来是牛排，这是来这里之前非常吸引我的一道菜，朋友点了一道，所以拍了一张。<br>
-<img src="https://lh3.googleusercontent.com/-gPsJjg0sI0QtU3i2C8kWgpdw6aUk_WATUDW0s4jwqdhaw02psVxpqPllJS9Tr3fUkGuUacfjcHq8FPqO1GQGP8daJi9PXDKz0_NsbfM6eTdMnbh78Um_hRcVekDeytjiQM12cOG8VTOr4UC22gqsSSU6PH9roJEQOWAXovwpl3Js5yDY9oRL1-6rkuYfw1l-kKSyb7vwXi7xz9cevOB02dWbkvhalTrQpg3u1I0WIEY_gOH3o0ua1J7b8ftQnyKbiU0OoIeNWHzn5_07i-g3_4P0BruU_NwtcGXvnP-lfhl8zkLgTnWUErnqN7nbia4PgKhyffqXcg7dtwXYrI-89EJ3vmsQwOAwxVKYPZT3o04gnzaUEzKYAtj05yTI6ViZcJb6oQ-IjtcxhYQxiw_55om5fqqmESOPZHbjukFlgwDpwMTbfYNR3nEHlOZ6h5cYmStFlrk11A8BA2aO5lENW1z4RY2eCYq6EgCvAbPNuhZtcawbxFptiog2xiKN6AUTExDoS32kgX5Jv7Ch_N12BiaAEyxMmzqJ3X-mUolC5nv0UrrcS9w4ima3V-B9bW5h5SaaO9kBIk2KGTE1r8cEN8clyGXQ7YDfVwomO0W4S9BQcsYmkXs1NJyOFeBDloa9cR_9aYGg6_KIo2s1Kj8XyDmvSOMkgNOHppa3ju15K2Oa2HXdknVRYt-mD-6ibNltb3KyMHlnD8sPqkd_RJutZw=w2880-h1378-no?authuser=0" alt="beef steak" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878472315.jpg" alt="beef steak" loading="lazy"><br>
 可以说烤的很有水平了，因为烤出了三层颜色。这样就可以尝到由外而内有层次的味道。此外还配有芥末，柠檬和烧烤酱，所以可以体会不同的细节。<br>
 然而，这是家居酒屋，所以其实是来喝酒的。光是酒就单独列了另外一个菜单。有自己制作的特色梅子酒和果酒，很值得一尝。朋友尝了之后感觉是来这里吃的最好吃的东西。。。可惜我开车，所以不能喝酒，下次就骑车来了。<br>
 总结来说，很值得一尝的一家店。特色鲜明。因为是居酒屋，适合和几个朋友一起来边聊边吃。追求饱腹的话，其实不大推荐，因为没有主食，只是吃菜的话消费是很高的。平均一人3000円。</p>
@@ -61,12 +160,12 @@ Today, I used the source code itself to fulfill the picture to make it somehow s
         <id>https://yifeijing.github.io/post/xiang-xiang/</id>
         <link href="https://yifeijing.github.io/post/xiang-xiang/">
         </link>
-        <updated>2021-11-27T14:15:50.000Z</updated>
+        <updated>2021-11-27T15:15:50.000Z</updated>
         <content type="html"><![CDATA[<p>周六晚上的学校食堂不开门，因此来学校的话通常只能选择提前买好便当。可惜昨天只买了一份且在中午吃了。晚上依然是在学校学习的预定下，就只能选择开车出去吃一顿回来。<br>
 打开Google地图，从学校的位置往城里拉，不由感叹这学校的位置真是偏僻---建在山顶上，往下走最近的只有一家便利店。放从前骑车的日子，那真是太辛苦了，绝对就直接回家了。现在可以开车了，就完全不一样了。本想去学研找个乌冬什么的来吃。往下滑的途中看到了曾经去过一次的“中华料理香香”。心想，菜单上有定食，直接来这里吃也行啊。叫上同在研究室的羊，一起去了。<br>
 从学校下山只花了七分钟左右就到了。因为已经过了七点，所以人不多，空位到处都有。坐下后，翻阅菜单。定食种类繁多，但真正称得上中餐的其实不多，我们点了青椒炒肉和回锅肉套餐。不到五分钟菜就来了。<br>
 典型的中餐日式搭配，除了青椒本身，还有紫菜鸡蛋汤，咸菜，沙拉，杏仁豆腐。这么多东西的价格是780円。米饭可以无限续，所以绝对能吃饱。其实这青椒炒肉的分量真的很多。我一共吃了<strong>三碗</strong>米饭，那盘肉丝还剩一半。加上那些配菜，吃的很撑。<br>
-<img src="https://lh3.googleusercontent.com/hvoPwW6nhNhRf2n6gKrjjMk5K5g4TIQvQ_rLWz0QMJ_RgACAhfHuvejJ-VJElmxNs5KCBYX7RLlwfD2d6OE_dGe0VrscNhobFVYgogQjiJARWcriwosQ-f2B1iRej6xM2LvAWzGgR0T1z1UHv2zzyXuirsQyA0ARo54RIzRgLOM2OD5TKVSVn28X0KZWwY1H6KzFDuTqbkHRAR1gf8DLhPIOxQZUim0P7GCtc2t9k1NSKBB2QccLoIG3lfrP7mJI7cRWDtOqZgjQvkb2ifeIaVPdxBv7b-84rMTGOu-HBmgwDVWoNhq9jslRQ94XGkbdaWJkr4xst-X35AlrI_v8aS7S0yG9tFnw3ckq7aOBZ5kyZHqcwu3HirWuWLvhHrGEwUne8bViJVw3IPKBSjhD4iBAaDmrFja7-DwK7f8635CYhKEoFjwxd1F5xuAC-GaufIUpg2aj7Xdfezi33Nvvfkyudq-D7Xa0iRpb_NGnDpJOZU6WhDkrEsY5WkxDYe1U6BRjYEqfTFY238LuWhx7UNEVLEbB74KUxXjvkgPt_45KRBr2hzGDUerUFKLacWgj0anHzVzmWrYfIMItWsvYrtf4o2Vvt_VspdPC-4bHfxhm4oDFYgROaePjUCRJb8TZwuD54zFE-gL7dUcuailjQV7t2wWHGITOkdttsByBA3avS1Zb4pa7-Ayo7ovMA6gBqD8tapbYgxoUf4bAqpRNsfc=w2880-h1378-no?authuser=0" alt="photo" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878591404.jpg" alt="" loading="lazy"><br>
 非常满意！以后饿了，就选这里了！</p>
 ]]></content>
     </entry>
@@ -98,13 +197,13 @@ It is not our abilities that show what we truly are. It is our choices. --- Harr
         <id>https://yifeijing.github.io/post/mu-li-yu-ao-te-lai-si/</id>
         <link href="https://yifeijing.github.io/post/mu-li-yu-ao-te-lai-si/">
         </link>
-        <updated>2021-11-26T05:33:21.000Z</updated>
+        <updated>2021-11-26T06:33:21.000Z</updated>
         <content type="html"><![CDATA[<h1 id="去糸島吃牡蛎">去糸島吃牡蛎</h1>
 <p>昨天第一次去吃牡蛎，原因是最近被不只同学、朋友、还有老师安利：“这是吃牡蛎的季节。”<br>
 我没有吃海鲜的习惯，更确切的说，除了常见的虾和鱼，剩下的几乎没有吃过。所以此次出行完全是因为好奇和建议。<br>
 拉上三个朋友，去了位于糸島西边的船越。那里是渔港，所以有很多鱼料理。现在正是产牡蛎的季节，所以所有的店铺都是卖牡蛎。我们来到了叫做豊漁丸的一家店。店内的摆设都是带有烤架的桌子。然后点菜，我以为牡蛎只是配菜之一，没想到是主菜。确切的说，全是牡蛎，唯一能被称得上主食的炒饭也是牡蛎炒饭。我们点了4盛，1盛有12个牡蛎，所以是48个。原因是云说上次一个人吃了2盛。<br>
 点上火，就可以开始烤了。具体的样子如下图。<br>
-<img src="https://lh3.googleusercontent.com/er7Wz6nlyuuDmKHCYm5IaMYAIB4CF_Iw-54uEt37knYPW0qIY43sC-aZLaCkQ3UbO4MewrkwcxYNT1mPO_xJPNgn8Y_aVgwhfx0N16CnO0tviv962zvIkgOwLQRy2gDq2RFay2DIMJvLj1CRcexyLmkKRSaI2T0bTKXRpG9ZeBs7I8xc3w74KAljEySVu7gV-CjYlEg-pPYhgZxWSTwOjoXaxopkiEAhArEXgNe8L2qPszfc0rQUKzHWLrdy7wvgsX3KSTUDLAex1NRwxrfyTrYZwIQXQakn_Lsu-gGAIKzLMZTITf5VhZnEfRJYT8KYZzsAE1XSoOnv-nN3KYNIsIM6kdGU0Pt4qc7CgeujbIOEuidlIAGQLUGuKrH4e4Jv3A1LGI_NMdgUN8zemuZqS7dsWiLCRtDyshCrbhQ-JC_OUPva2Pu1sIYJcTej0sZhucfzx88fRecofZQHiDX-TawpFR1BQWFWpWQbm9zheMjj_ZzyVKTFMQefFR_PQFIzDLoL8ie9cMkNWil5QBSQQGH7G1dzOKIa2-jVXKNVVKFJwLTMjZlD7a1dLdyxKAr06kfc61FrFo65FGjERMhPjYwvU22PKr63z48UsHBZPn_fLjK_xkQmLoVeht7aiqQHtO2B2rhp04WFGtcIzvOjqYr1mBcDJ0xxpEoDFBYVz-zyRHepw13CrTpeLwn_uBFWGTb5tc7lf7H0PkgrMBPcszY=w2880-h1378-no?authuser=0" alt="kaki" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878671790.jpg" alt="kaki" loading="lazy"><br>
 直接将端上来的活牡蛎放在烤架上，什么预先准备都不用，甚至不用洗。。。活牡蛎的壳是紧闭的，而死了之后就会张开。随着牡蛎被烤死，就会有些牡蛎的壳自然张开，这时就可以吃了。然而终究没那么简单，因为有部分牡蛎烤熟了也不开壳，这就导致知道里面烤焦了才发现。烤好后，掰开壳，就能看到牡蛎的肉了，倒上酱汁，味道不错。我们拿到了<strong>大蒜黄油</strong>，明太子，还有酱油。之后一致同意大蒜黄油是最好吃的。<br>
 除此之外，其实还点了鱿鱼，一人一整只切好的，然后放在架子上烤好了沾上蛋黄酱吃，味道也非常好。<br>
 然而这顿饭唯一的缺点终究是成也牡蛎，败也牡蛎。这本来挺好吃的东西，但是支持这个的话，就像吃巧克力一样，刚开始很棒，后来就觉得很齁。无论什么吃多了都会不太好。我当晚就觉得头剧痛，前所未有的痛，因此只能十点早早休息了。<br>
@@ -118,7 +217,7 @@ It is not our abilities that show what we truly are. It is our choices. --- Harr
 <img src="https://yifeijing.github.io/post-images/1637930017124.jpg" alt="" loading="lazy"><br>
 都是打折断码品，所以价格都减半或以上的卖。虽然说是低廉的价格了，换算成人命币还是不便宜了。花了将近1万完成了任务，这趟来的还是很值的。<br>
 下午四点钟左右来的，走的时候已经是七点了。天完全黑了以后，停车场旁边的一座教堂显得甚是庄严标志，用带在手边的Canon EOS拍了几张。<br>
-<img src="https://lh3.googleusercontent.com/ezEz_W0DGwmytUPA97wovODvU8SUNvf-3xcssAM-fcmibK7vJUIp6UBeP9DNRnu5VoCWr3TKL3QJxqUM3Sf1Ao5OTsG_fHUEw6-vUnlUP3WaHNbTYdFTmE7XlqLJNjIf1y0hxmpr1eMkYm6XgCo50YNyNhXcR_9uQ72BiJMc6sZlrAcyizNbJyVA8UozFSi_Vxhr8Zhg4ibxMhKEa1K8wq3sTnKZZL8S66clKt-dS2HmgcR_XIg53JcDcJXa42rrz3l9hcc57xjzm3Dt1qA91mwF3TWce0YZNPG4obS1-xB3jZQdVdsBOR_D3AYmmya427c9HukjQReImMKDs-PUmn77L2rOUQDcl_TqAaqt32P0xP2fmON46ZSHKh4cIUB-OLgQVBY6KY38gXPsPt4wIvwxgjVm3WBrxRUFGT6LZyy71vfZZ0MCB32dBGZHCdfBajGrIqYbTO4EbDHNDOj53fICxCxuJMmT2hd-4-t6daFCBR1ixVQLXGpHUQKgwG9kN_qgt-bTzAeWFxcEWs8VRfnpW9ZQjM5imziwcIioON0mvZdF1mNkOoezao4_XguALG4LVcLhCk5PzchuIhpBQv1yp5ODMwcueJbeoez5bMGZkVztPXUANiWY387labnN2HkHpPMtdqZIQO5OOpgT6UgwjzxEI41cu17nPoHNHy0UmuRAe3BQyEgHCjOrWTstFxmdMCFW7FmgJxiRtt3Y2VQ=w2394-h1596-no?authuser=0" alt="chapel" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1638878683911.jpg" alt="chapel" loading="lazy"><br>
 教堂名为Notre Dame，平日除了礼拜，多是承办婚礼。因为没去过，所以详细的也不甚了解。</p>
 <h1 id="小记">小记</h1>
 <p>算是一点生活点滴的记录吧。<br>
@@ -242,41 +341,6 @@ A larger aperture allows more light to enter the camera, thus a faster shutter s
 A smaller aperture can be used in shooting landscape in day light as it focus everything in the scene.</p>
 <h2 id="resource">Resource</h2>
 <p><a href="https://www.youtube.com/watch?v=YojL7UQTVhc">Camera Basics - Aperture</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[How to build a website for free (The method of building this website)]]></title>
-        <id>https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/</id>
-        <link href="https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/">
-        </link>
-        <updated>2021-11-18T13:53:20.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="recipe">Recipe</h2>
-<ul>
-<li><a href="https://github.com/getgridea/gridea">Gridea</a>: A static blog writing client</li>
-<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages">Github Pages</a>: A static site hosting service based on a repository on Github</li>
-</ul>
-<h2 id="method">Method</h2>
-<ol>
-<li>Get the <strong>Gridea</strong> installed on your device</li>
-<li>Register for a <strong>Github</strong> account</li>
-<li>Create a new repository with its name specifically be <code>&lt;username&gt;.github.io</code>  <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, where <code>&lt;username&gt;</code> is the placeholder for you user name</li>
-<li>Direct to <em>Settings</em> -&gt; <em>Developer settings</em> -&gt; <em>Personal access tokens</em>, and <em>Generate new token</em> here</li>
-<li>At the <em>Select scopes</em> region, check <em>repo</em>, then <em>Generate token</em></li>
-<li>Copy that token and paste it to the corresponding place in <strong>Gridea</strong>'s server panel</li>
-<li>Fill in the domain part and repository part with <code>&lt;username&gt;.github.io</code>, which you created before</li>
-<li>Branch is normally &quot;main&quot;, and Branch username is your username</li>
-<li>Other parts are ok to be empty</li>
-<li>Save and Synchronize</li>
-</ol>
-<h2 id="advanced">Advanced</h2>
-<p>In the <em>Theme</em> part of <strong>Gridea</strong>, other themes created by users can be deployed, which, apart from writing blogs, may be another time-costing task. The theme of this blog called &quot;Next&quot; was created by users and a lot of plug-ins have been integrated.</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>The reason is that <strong>Github</strong> automatically creates the <strong>Github Pages</strong> for this domain name, and the <strong>Gridea</strong> assumes that the user is using the default domain, so that other problems of root path can be solved. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 ]]></content>
     </entry>
 </feed>
