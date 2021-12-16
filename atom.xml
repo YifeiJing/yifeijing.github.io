@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-12-07T12:06:25.309Z</updated>
+    <updated>2021-12-16T05:28:47.898Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[Abashi]]></title>
+        <id>https://yifeijing.github.io/post/abashi/</id>
+        <link href="https://yifeijing.github.io/post/abashi/">
+        </link>
+        <updated>2021-12-11T06:03:57.000Z</updated>
+        <content type="html"><![CDATA[<p>这次去了名叫Abashi的印度餐厅。<br>
+主菜是馕和咖喱，单从菜单看就发现其实只有咖喱和馕，加上烤鸡腿。<br>
+<img src="https://yifeijing.github.io/post-images/1639631423084.jpg" alt="" loading="lazy"><br>
+<img src="https://yifeijing.github.io/post-images/1639631435133.jpg" alt="" loading="lazy"></p>
+<p>首先要选择一个套餐，这套餐搭配很简单，馕和咖喱，馕有多种可选，根据加的佐料，有芝士之类的。然而这价格对于我来说有点高，于是就点了普通的馕。咖喱的选择有一个专门的菜单。有各种佐料，第一次来，就选了比较大众的鸡肉咖喱。然后选辣度，从0到100可选。根据菜单的建议，到5就是一般辣咖喱的味道了，作为在家做过辣咖喱的人，我决定选择5。实际上完全不辣，或者说基本感觉不到辣。后来和前辈聊起，一般都选20。更有甚者选择100，毕竟那是极限辣度，就总有人选择挑战一把，我就算了。。。</p>
+<p>回到菜单，选择一个套餐之后，就可以去乘免费的汤喝了。有鸡蛋汤和番茄汤可选。<br>
+<img src="https://yifeijing.github.io/post-images/1639632052109.jpg" alt="" loading="lazy"><br>
+因为鸡蛋汤太一般，于是只拍了番茄汤。味道真的不错。</p>
+<p>然后是烤鸡腿，点了一个大蒜的，烤的还是可以的，但是蒜味其实不太浓，总体印象一般吧。<br>
+<img src="https://yifeijing.github.io/post-images/1639632334570.jpg" alt="" loading="lazy"><br>
+重点还是馕和咖喱。<br>
+<img src="https://yifeijing.github.io/post-images/1639632360952.jpg" alt="" loading="lazy"><br>
+好大一片馕，然后撕下来一片，沾上右边的咖喱，就是所有的吃法。真的太好吃了。就和家里的馒头蘸酱一样。然而咖喱是热的，馕也是刚烤出来的，实在是太棒了。</p>
+<p>以后还会再来，考虑到是饭店，所以一顿990吃下来其实价格可以接受。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[My LaTeX configurations]]></title>
         <id>https://yifeijing.github.io/post/my-latex-configurations/</id>
@@ -314,33 +336,6 @@ At the <code>Overview</code> part, there is one item:</p>
 </blockquote>
 <p>Thus, it is possible to perform drawing into a context and render it later.</p>
 <p>Actually, the drawing facilities are based on <em>Apple</em>'s <em>Cocoa</em> framework, which was originally the graphic library of X OS.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Aperture]]></title>
-        <id>https://yifeijing.github.io/post/aperture/</id>
-        <link href="https://yifeijing.github.io/post/aperture/">
-        </link>
-        <updated>2021-11-19T06:38:37.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="what-is-aperture">What is aperture?</h2>
-<blockquote>
-<p>The hole in the lens, through which light travels into the camera body and onto the camera sensor.</p>
-</blockquote>
-<p>Normally, the larger the aperture size is, the more light that enters into the camera.</p>
-<h2 id="f-numbering">F numbering</h2>
-<p><em>F-Stop</em> is <strong>inversely</strong> related to the aperture size.<br>
-The specifications of the lens show the maximum and minimum aperture sizes.<br>
-Mostly, the maximum aperture size is considered, as it indicates the speed of the lens.<br>
-Fast lens are usually have a maximum aperture from 1.4 to 5.6.</p>
-<h2 id="two-kinds-of-lenses">Two kinds of lenses</h2>
-<p><em>Prime lens</em>: a fixed focal length and a fixed maximum aperture<br>
-<em>Zoom lens</em>: zoom in and out stationary, while the maximum aperture always gets smaller, as the focal length increases</p>
-<h2 id="applications">Applications</h2>
-<p>As the aperture controls the amount of light entering into the camera, the shutter speed and ISO are also affected.<br>
-A larger aperture allows more light to enter the camera, thus a faster shutter speed and a smaller ISO value can be achieved. This is beneficial to eliminate the motion blur and reduce the noise into the camera. Large aperture is also needed in capturing night scenes.<br>
-A smaller aperture can be used in shooting landscape in day light as it focus everything in the scene.</p>
-<h2 id="resource">Resource</h2>
-<p><a href="https://www.youtube.com/watch?v=YojL7UQTVhc">Camera Basics - Aperture</a></p>
 ]]></content>
     </entry>
 </feed>
