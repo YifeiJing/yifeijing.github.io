@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-12-16T05:28:47.898Z</updated>
+    <updated>2021-12-17T11:02:20.528Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -136,7 +136,7 @@ When it is needed to cross-ref something, using the command:</p>
         <id>https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/</id>
         <link href="https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/">
         </link>
-        <updated>2021-12-03T11:31:54.000Z</updated>
+        <updated>2021-12-03T12:31:54.000Z</updated>
         <content type="html"><![CDATA[<p>Maybe you have found that my wechat profile photo has been changed to a picture full of ASCII characters but still the outline of people's face can be somehow figured out. Today, it changed to a new pattern, where the source code of the converter has been used as the fulfilling text.</p>
 <h2 id="the-mechanism">The mechanism</h2>
 <p>This program uses the image utilities of opencv, which decodes the input image file in to an array in the memory, so that the developer can manipulate based on the information of the picture. What has been useful is the automatic grayscale convert mode specified by method <em>imread</em>, such that the convert from color image to a grayscaled image is just one step along with the image file decoding. Then, the magic is to specify the intervals of intensities and arrange a symbol for each interval, respectively. Because it is an ASCII art, output the symbols directly based one the interval is enough.</p>
@@ -150,6 +150,9 @@ Today, I used the source code itself to fulfill the picture to make it somehow s
 <img src="https://yifeijing.github.io/post-images/1638528642844.png" alt="" loading="lazy"></p>
 <h2 id="possible-improvement">Possible improvement</h2>
 <p>Highlight the language grammar. This is not hard to image, but the implementation is difficult, because both the language server and the highlight method are not easy to implement.</p>
+<h2 id="20211217">2021.12.17</h2>
+<p>This task is now done by using regex to analyse the code and color the outputs using ANSI escape controls. I truely made it!<br>
+<img src="https://yifeijing.github.io/post-images/1639738882370.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
