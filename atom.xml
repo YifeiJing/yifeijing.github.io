@@ -2,14 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2021-12-17T11:02:20.528Z</updated>
+    <updated>2022-01-04T02:30:11.462Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
     <subtitle>Yifei&apos;s personal blog!</subtitle>
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Moriturus Te Saluto</rights>
+    <rights>All rights reserved 2022, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[A way to connect XOS to Windows samba server]]></title>
+        <id>https://yifeijing.github.io/post/a-way-to-connect-xos-to-windows-samba-server/</id>
+        <link href="https://yifeijing.github.io/post/a-way-to-connect-xos-to-windows-samba-server/">
+        </link>
+        <updated>2022-01-04T03:19:20.000Z</updated>
+        <content type="html"><![CDATA[<p>I have been using the file sharing system for one year, but using the Windows machine provided by school. It is not a good choice to use this PC to work then browse files on Windows and find some ways to transport files from that machine to my Mac. Thus, I spent some time on connecting the two different file systems.<br>
+Actually, it it the original idea that the network was designed to share files between different systems. It is just the complicacy of this system that made connections difficult. There is really a solution provided by <em>Finder</em> on Mac. Using the <strong>Connect to server</strong> option in the <strong>Go</strong> panel, then input the server name and share name in the form of &quot;smb://server_name/share_name&quot;. The connection is ready if the above information is correct.<br>
+ref: http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3908137</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Abashi]]></title>
         <id>https://yifeijing.github.io/post/abashi/</id>
@@ -279,66 +290,6 @@ It is not our abilities that show what we truly are. It is our choices. --- Harr
 更让人感觉反差的，是当晚的花火大会，没花一分钱在山上欣赏了一场绝妙的演出。<br>
 <img src="https://lh3.googleusercontent.com/65-MdWs20UYvGIRWNnp2c7yCDH0mwABzmntPGe6vOXLy1Deqe50b1ykrIDiYca8jb_Exv83QnW5loJwrlC3yunonXMNt1yaJv5-3OM3EelxhD9A5FUWwP5TJW7jFnDuRlepV-2I1YA_NHD4-vrZH-ztbmn2Xxho-HxqvzypR6OPsZrH7S_kBUGy-earud0k3fCCzOSCtbX2cv-83ULWir6ZaT1Edbe0U9eIdrYOhypK7eVv6E59Kj1WDe3wkAdgTkREos4QF_1DZVoI1ZTV0C2p-r9D8YAgbQMKT8dg0SyJ51ji-Lpi0CaKZdU2D17X-B4Mvplw7ieWFRPNU9LzT_fJQslDsWG1yzMY2ZZklQ1GbmWthabJe20MESIEDPoc8wq2-zph71Zegw72uP-f8uMe6DtPy8O5ymT4I8y9fLfD5XZjlPDi9tTQ45FAhukESsJVbiZcw028ut25jAda1kkCu9f1yWo6fkE_yx_uzJii26VKxIfS_PznNAd4GgsUdw64oNehDyebapnxnQbY5A43HWmjVMUXtjl48XVHL2hjsXCBG6gQr8l4DKaWkoBd3N4nylHR-UHL3M8YdmaTR4p1NZvjGdL9lnZH-lEEYG8XZ2zhYg-vKlDcgWj_4JbJqsQ92LBsNHAwwqXY865fhm6bM4ol1poa1r09poVPMOk_SAWAARSD6OLQraZbbkLzisKv7Hx_I6SmPCbm5H7RJ7A=w2394-h1596-no?authuser=0" alt="hanabi" loading="lazy"><br>
 我只想说，在恶心人方面，日本人真的在行！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Development of Cat run on menu bar]]></title>
-        <id>https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/</id>
-        <link href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/">
-        </link>
-        <updated>2021-11-19T15:54:12.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>This is a desktop app which adds a small cat on the menu bar. The cat is running at a speed relating to the CPU usage.<br>
-Based on <a href="https://apps.apple.com/jp/app/runcat/id1429033973?l=en&amp;mt=12">RunCat</a>, which has a full functionality, this is a free open-source version provided by the author.<br>
-Through learning this version, the basement of developing an App on the menu bar can be somehow interpretated.</p>
-<h2 id="elaboration">Elaboration</h2>
-<p>By clone the <a href="https://github.com/Kyome22/menubar_runcat">repository</a>, a program fully written in Swift can be compiled to run. The result is just one cat running.<br>
-<img src="https://yifeijing.github.io/post-images/1637316405754.gif" alt="" loading="lazy"><br>
-The basic function (how to get the cat running in the menu bar) can be found in the file <em>AppDelegate.swift</em>. Actually, it's a <code>status item</code> with its <code>button</code> image changed ever since.</p>
-<p>The images are previously prepared. To let the user see the cat running, the author prepared five pictures where cat in different postures have been drawn. The application loads these images on launching the app, then the <code>button image</code> changes by adding asynchronous task which executes at a later time.</p>
-<pre><code class="language-Swift">func animate() {
-        statusItem.button?.image = frames[cnt]
-        cnt = (cnt + 1) % frames.count
-        if !isRunning { return }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + interval) {
-            self.animate()
-        }
-    }
-</code></pre>
-<p>The time of executing the task is dependent on parameter <em>deadline</em>, which stores the time after an &quot;interval&quot;. This variable is appdated by the timer.</p>
-<pre><code class="language-Swift">func startRunning() {
-        cpuTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (t) in
-            self.usage = self.cpu.usageCPU()
-            self.interval = 0.02 * (100 - max(0.0, min(99.0, self.usage.value))) / 6
-            self.statusItem.button?.title = self.isShowUsage ? self.usage.description : &quot;&quot;
-        })
-        cpuTimer?.fire()
-        isRunning = true
-        animate()
-    }
-</code></pre>
-<p>The value is based on the usage of the CPU, the more the CPU is used, the smaller this value is. As the interval gets smaller when CPU usage is larger, the frequency of updating the images increases, thus the cat runs faster.</p>
-<h2 id="changing-to-other-images">Changing to other images</h2>
-<p>The inspiration is from one of my friend, who asked me whether the cat can be replaced by a penguin. I said yes, as I know it is just a set of pictures. Then I dig into the the specifications of the images. Actually, there is only the height restriction on the images, which should be 36xp.</p>
-<p>I first used the <em>React</em> brand, that blue atom. I want it to rotate. Then I found the source image on the web. I use <em>GIMP</em> to rotate with 15, 30, 45 degrees. The reason is that it has six equal part, and rotating 60 degrees is the same as the original one. Add these images to the project Assets, then load them in the code. The rotating atom can be seen on the menu bar.<br>
-<img src="https://yifeijing.github.io/post-images/1637318261155.gif" alt="" loading="lazy"></p>
-<p>Finally, the penguin of <em>Suica</em> was tried.</p>
-<img src="https://www.jrepoint.jp/resource/img/information/penguincalendar/2021/penguin_01.svg" alt="drawing" width="200"/>
-<p>The penguin only has one pose, so I edited the picture to perform walking.<br>
-<img src="https://yifeijing.github.io/post-images/1637318479594.gif" alt="" loading="lazy"><br>
-Then, the penguin face version was also created.</p>
-<figure data-type="image" tabindex="1"><img src="https://yifeijing.github.io/post-images/1637318774101.gif" alt="" loading="lazy"></figure>
-<h2 id="challenge">Challenge</h2>
-<p>The lastest idea is that, using the most beautiful mathematical equation: <strong>Euler's equation</strong> to draw a rotating circle which generates sinusoidal waves with frequency related to the CPU usage.<br>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Circle_cos_sin.gif" alt="" loading="lazy"><br>
-While this time, we cannot depend on pictures, as the waves are changing with frequency, that is to say, they should be created and rendered in time.</p>
-<p>To move further, check the documentation of <a href="https://developer.apple.com/documentation/appkit/nsimage">NSImage</a>.<br>
-At the <code>Overview</code> part, there is one item:</p>
-<blockquote>
-<p>Drawing images into a view or graphics context.</p>
-</blockquote>
-<p>Thus, it is possible to perform drawing into a context and render it later.</p>
-<p>Actually, the drawing facilities are based on <em>Apple</em>'s <em>Cocoa</em> framework, which was originally the graphic library of X OS.</p>
 ]]></content>
     </entry>
 </feed>
