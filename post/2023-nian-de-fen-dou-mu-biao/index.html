@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Yifei&#39;s personal blog!">
 <meta name="theme-color" content="#212529">
-<title>Aperture | Moriturus Te Saluto</title>
+<title>2023年的奋斗目标 | Moriturus Te Saluto</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1673506911542">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -51,8 +51,8 @@
 
 
 
-  <meta name="description" content="Aperture" />
-  <meta name="keywords" content="Photography,Notes" />
+  <meta name="description" content="2023年的奋斗目标" />
+  <meta name="keywords" content="Summary" />
 </head>
 
 <body>
@@ -203,8 +203,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -249,199 +248,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper  auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#what-is-aperture">What is aperture?</a></li>
-<li><a href="#f-numbering">F numbering</a></li>
-<li><a href="#two-kinds-of-lenses">Two kinds of lenses</a></li>
-<li><a href="#applications">Applications</a></li>
-<li><a href="#resource">Resource</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -529,14 +335,14 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yifeijing.github.io/post/aperture/"> Aperture </a>
+    <a class="post-title-link" href="https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/"> 2023年的奋斗目标 </a>
   </h1>
   <div class="post-meta">
     
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-11-19 15:38:37">2021-11-19</span>
+      <span class="publish-time" data-t="2023-01-12 16:55:26">2023-01-12</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -544,9 +350,8 @@
       <i class="fa fa-folder-o"></i>
       <span class="pc-show language" data-lan="category-in">标签:</span>
        
-      <a href="https://yifeijing.github.io/tag/8ckAv5LCJ/"> <span>Photography</span> </a>、   
-      <a href="https://yifeijing.github.io/tag/IQWlYpvJb/">
-        <span>Notes</span>
+      <a href="https://yifeijing.github.io/tag/atpWq6nOS/">
+        <span>Summary</span>
       </a>
        
     </span>
@@ -555,7 +360,7 @@
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
       <span
-        >2<span class="language" data-lan="minute"
+        >1<span class="language" data-lan="minute"
           >分钟</span
         ></span
       >
@@ -564,7 +369,7 @@
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
       <span
-        >213<span class="pc-show language" data-lan="words"
+        >29<span class="pc-show language" data-lan="words"
           >字数</span
         ></span
       >
@@ -574,25 +379,12 @@
 </section>
 
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="what-is-aperture">What is aperture?</h2>
-<blockquote>
-<p>The hole in the lens, through which light travels into the camera body and onto the camera sensor.</p>
-</blockquote>
-<p>Normally, the larger the aperture size is, the more light that enters into the camera.</p>
-<h2 id="f-numbering">F numbering</h2>
-<p><em>F-Stop</em> is <strong>inversely</strong> related to the aperture size.<br>
-The specifications of the lens show the maximum and minimum aperture sizes.<br>
-Mostly, the maximum aperture size is considered, as it indicates the speed of the lens.<br>
-Fast lens are usually have a maximum aperture from 1.4 to 5.6.</p>
-<h2 id="two-kinds-of-lenses">Two kinds of lenses</h2>
-<p><em>Prime lens</em>: a fixed focal length and a fixed maximum aperture<br>
-<em>Zoom lens</em>: zoom in and out stationary, while the maximum aperture always gets smaller, as the focal length increases</p>
-<h2 id="applications">Applications</h2>
-<p>As the aperture controls the amount of light entering into the camera, the shutter speed and ISO are also affected.<br>
-A larger aperture allows more light to enter the camera, thus a faster shutter speed and a smaller ISO value can be achieved. This is beneficial to eliminate the motion blur and reduce the noise into the camera. Large aperture is also needed in capturing night scenes.<br>
-A smaller aperture can be used in shooting landscape in day light as it focus everything in the scene.</p>
-<h2 id="resource">Resource</h2>
-<p><a href="https://www.youtube.com/watch?v=YojL7UQTVhc">Camera Basics - Aperture</a></p>
+              <ol>
+<li>GitHub拿到3个star</li>
+<li>去2k+star仓库水一个PR</li>
+<li>和大牛推友互动超过5句话</li>
+<li>谈一场恋爱</li>
+</ol>
 
             </div>
             
@@ -609,7 +401,7 @@ A smaller aperture can be used in shooting landscape in day light as it focus ev
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://yifeijing.github.io/post/aperture/" title="Aperture">https://yifeijing.github.io/post/aperture/</a>
+      <a href="https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/" title="2023年的奋斗目标">https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -618,23 +410,17 @@ A smaller aperture can be used in shooting landscape in day light as it focus ev
   </ul>
   <div class="tags">
     
-      <a href="https://yifeijing.github.io/tag/8ckAv5LCJ/"># Photography</a>
-    
-      <a href="https://yifeijing.github.io/tag/IQWlYpvJb/"># Notes</a>
+      <a href="https://yifeijing.github.io/tag/atpWq6nOS/"># Summary</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Development of Cat run on menu bar" href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/">Development of Cat run on menu bar</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Development of Cat run on menu bar" href="https://yifeijing.github.io/post/development-of-cat-run-on-menu-bar/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="How to build a website for free (The method of building this website)" href="https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/">How to build a website for free (The method of building this website)</a>
-        <a class="nav-mobile-next" title="How to build a website for free (The method of building this website)" href="https://yifeijing.github.io/post/how-to-build-a-website-for-free-the-method-of-building-this-website/">下一篇</a>
+        <a class="nav-pc-next" title="写在2022年11月" href="https://yifeijing.github.io/post/xie-zai-2022-nian-11-yue/">写在2022年11月</a>
+        <a class="nav-mobile-next" title="写在2022年11月" href="https://yifeijing.github.io/post/xie-zai-2022-nian-11-yue/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

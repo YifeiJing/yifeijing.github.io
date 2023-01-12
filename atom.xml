@@ -2,14 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2022-12-15T11:13:56.492Z</updated>
+    <updated>2023-01-12T07:01:59.574Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
     <subtitle>Yifei&apos;s personal blog!</subtitle>
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, Moriturus Te Saluto</rights>
+    <rights>All rights reserved 2023, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[2023年的奋斗目标]]></title>
+        <id>https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/</id>
+        <link href="https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/">
+        </link>
+        <updated>2023-01-12T07:55:26.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>GitHub拿到3个star</li>
+<li>去2k+star仓库水一个PR</li>
+<li>和大牛推友互动超过5句话</li>
+<li>谈一场恋爱</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[写在2022年11月]]></title>
         <id>https://yifeijing.github.io/post/xie-zai-2022-nian-11-yue/</id>
@@ -218,30 +232,6 @@ When it is needed to cross-ref something, using the command:</p>
 <h3 id="cite">Cite</h3>
 <h3 id="multicolmultirow">Multicol/Multirow</h3>
 <h3 id="tabulary">Tabulary</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The retrogradation of profile photo]]></title>
-        <id>https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/</id>
-        <link href="https://yifeijing.github.io/post/the-retrogradation-of-profile-photo/">
-        </link>
-        <updated>2021-12-03T12:31:54.000Z</updated>
-        <content type="html"><![CDATA[<p>Maybe you have found that my wechat profile photo has been changed to a picture full of ASCII characters but still the outline of people's face can be somehow figured out. Today, it changed to a new pattern, where the source code of the converter has been used as the fulfilling text.</p>
-<h2 id="the-mechanism">The mechanism</h2>
-<p>This program uses the image utilities of opencv, which decodes the input image file in to an array in the memory, so that the developer can manipulate based on the information of the picture. What has been useful is the automatic grayscale convert mode specified by method <em>imread</em>, such that the convert from color image to a grayscaled image is just one step along with the image file decoding. Then, the magic is to specify the intervals of intensities and arrange a symbol for each interval, respectively. Because it is an ASCII art, output the symbols directly based one the interval is enough.</p>
-<h2 id="the-result">The result</h2>
-<p>At first, the symbols are specified by some marks like '_', '-', '.', '#', '`', '^', and each symbol actually indicates one interval of intensity. Using my original profile photo Alan:<br>
-<img src="https://yifeijing.github.io/post-images/1638528498677.jpeg" alt="original profile photo" loading="lazy"><br>
-And the result is shown:<br>
-<img src="https://yifeijing.github.io/post-images/1638528533988.png" alt="symbol result" loading="lazy"><br>
-The outline is clear from the difference of marks.<br>
-Today, I used the source code itself to fulfill the picture to make it somehow special. It now looks like this:<br>
-<img src="https://yifeijing.github.io/post-images/1638528642844.png" alt="" loading="lazy"></p>
-<h2 id="possible-improvement">Possible improvement</h2>
-<p>Highlight the language grammar. This is not hard to image, but the implementation is difficult, because both the language server and the highlight method are not easy to implement.</p>
-<h2 id="20211217">2021.12.17</h2>
-<p>This task is now done by using regex to analyse the code and color the outputs using ANSI escape controls. I truely made it!<br>
-<img src="https://yifeijing.github.io/post-images/1639738882370.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
