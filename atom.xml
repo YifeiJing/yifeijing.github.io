@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2023-01-12T07:01:59.574Z</updated>
+    <updated>2023-01-12T08:45:54.889Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -15,11 +15,13 @@
         <id>https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/</id>
         <link href="https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/">
         </link>
-        <updated>2023-01-12T07:55:26.000Z</updated>
+        <updated>2023-01-12T08:55:26.000Z</updated>
         <content type="html"><![CDATA[<ol>
 <li>GitHub拿到3个star</li>
 <li>去2k+star仓库水一个PR</li>
 <li>和大牛推友互动超过5句话</li>
+<li>阅读和测试50个1k+star项目</li>
+<li>坚持两个新习惯</li>
 <li>谈一场恋爱</li>
 </ol>
 ]]></content>
