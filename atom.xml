@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yifeijing.github.io</id>
     <title>Moriturus Te Saluto</title>
-    <updated>2023-01-12T08:45:54.889Z</updated>
+    <updated>2023-07-06T22:18:46.404Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yifeijing.github.io"/>
     <link rel="self" href="https://yifeijing.github.io/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>https://yifeijing.github.io/images/avatar.png</logo>
     <icon>https://yifeijing.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Moriturus Te Saluto</rights>
+    <entry>
+        <title type="html"><![CDATA[Tokyo motor touring list]]></title>
+        <id>https://yifeijing.github.io/post/tokyo-motor-touring-list/</id>
+        <link href="https://yifeijing.github.io/post/tokyo-motor-touring-list/">
+        </link>
+        <updated>2023-05-13T08:00:17.000Z</updated>
+        <content type="html"><![CDATA[<p>As it is known that the traffic in the street of tokyo is not suitable for motorcycles, this list amphasizes on the places with parking places for bikes.</p>
+<ol>
+<li>arima dam: no parking space though, you can park at the side of the road directly, as everyone do like this.</li>
+<li>okutama: best place for riding in the mountain, have many parking space to rest.</li>
+<li>城南島海浜公園: free parking space and places to sit</li>
+<li>金田さざなみ公園: free parking space available</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2023年的奋斗目标]]></title>
         <id>https://yifeijing.github.io/post/2023-nian-de-fen-dou-mu-biao/</id>
@@ -135,105 +150,6 @@ ref: http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3908137</p>
 <img src="https://yifeijing.github.io/post-images/1639632360952.jpg" alt="" loading="lazy"><br>
 好大一片馕，然后撕下来一片，沾上右边的咖喱，就是所有的吃法。真的太好吃了。就和家里的馒头蘸酱一样。然而咖喱是热的，馕也是刚烤出来的，实在是太棒了。</p>
 <p>以后还会再来，考虑到是饭店，所以一顿990吃下来其实价格可以接受。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[My LaTeX configurations]]></title>
-        <id>https://yifeijing.github.io/post/my-latex-configurations/</id>
-        <link href="https://yifeijing.github.io/post/my-latex-configurations/">
-        </link>
-        <updated>2021-12-06T03:51:26.000Z</updated>
-        <content type="html"><![CDATA[<p>Having used LaTeX for such a long time makes me feel it is necessary to summarise for me configuration for later uses and recommendations.</p>
-<h2 id="packages">Packages</h2>
-<p>Like any projects and languages, the most important thing is to use appropriate packages. I will introduce my own set of packages frequently used in writing essays and reports.</p>
-<h3 id="geometry">Geometry</h3>
-<p>If you have been using the default page layout for some time, you must have noticed that there are too many white space at the margin. The <strong>Geometry</strong> package lets you change the page layout. Actually, it can change the length and layout of paper size, margins, footnote, header, orientation by simple configuratiions when including the package.</p>
-<p>For my case, I would like to customize the space of top, bottom, left, right.</p>
-<pre><code class="language-LaTeX">\usepackage[top=3cm, bottom=3.2cm, left=4cm, right=3cm]{geometry}
-</code></pre>
-<h3 id="hyperref">Hyperref</h3>
-<p>Because the main purpose of using LaTeX for me is to generate pdf files, which have excellent navigating tools, <strong>hyperref</strong> provides all enough for cross-reference elements in the pdf.<br>
-When it is needed to cross-ref something, using the command:</p>
-<pre><code class="language-LaTeX">\hyperref[]{}
-</code></pre>
-<p>The compiler will handle all of the rest.</p>
-<p>My configuration: (A sample of my dissertation)</p>
-<pre><code class="language-LaTeX">\hypersetup{
-    pdftoolbar=true,        % show Acrobat’s toolbar?
-    pdfmenubar=true,        % show Acrobat’s menu?
-    pdffitwindow=false,     % window fit to page when opened
-    pdfstartview={FitH},    % fits the width of the page to the window
-    pdftitle={Modelling the Impact of Wind and EVs to the Power Grid in Orkney},    % title
-    pdfauthor={Yifei Jing},     % author
-    pdfsubject={Dissertation},   % subject of the document
-    pdfcreator={Yifei Jing},   % creator of the document
-    pdfproducer={Yifei Jing},
-    pdfkeywords={Data Science} {Power grid} {Electrical vehicles} {Simulation},
-    colorlinks,
-    linkcolor=violet,
-    citecolor=blue,
-    urlcolor=brown
-}
-</code></pre>
-<h3 id="graphicx">Graphicx</h3>
-<p>There is always the need to include figures, and this package handles the functions of importing figures into document. The command is simple: <code>\includegraphics[]{}</code> though, it is always combined with the <em>figure</em> environment.</p>
-<pre><code class="language-LaTeX">\begin{figure}[ht]
-            \centerline{\includegraphics[scale=1]{cummulativewindcapacity}}
-            \caption{The cumulative wind power generation capacity between 2000 and 2019}
-            \label{fig_cummulative_wind_capacity}
-\end{figure}
-</code></pre>
-<p>This figure can be automatically numbered by LaTeX compiler, and referenced.</p>
-<p>What needs to be concerned is the positioning configurations to the right part of the figure command.</p>
-<table>
-<thead>
-<tr>
-<th>Specifiers</th>
-<th>Permission</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h</td>
-<td>Place the float <em>here</em>. Approximately at the same point it occurs in the source text.</td>
-</tr>
-<tr>
-<td>t</td>
-<td>Position at the <em>top</em> of the page.</td>
-</tr>
-<tr>
-<td>b</td>
-<td>Position at <em>bottom</em> of the page.</td>
-</tr>
-<tr>
-<td>p</td>
-<td>Put on a special <em>page</em> for floats only.</td>
-</tr>
-<tr>
-<td>!</td>
-<td>Override internal parameters LaTeX uses for determining &quot;good&quot; float positions.</td>
-</tr>
-</tbody>
-</table>
-<p>However, the real usage is always combining 'htp' together, while they have conflicting meanings. It is also needed to be notified that the <em>figure</em> environment makes the float element, such that LaTeX will not break it into parts, and it will always select the best place to put it to some where. Therefore, <a href="https://tex.stackexchange.com/questions/8625/force-figure-placement-in-text">it is wise to directed include the picture into the document if the position of the figure is so important that it cannot be decided by LaTeX</a>.</p>
-<pre><code class="language-LaTeX">\usepackage{caption}
-...
-\noindent%
-\begin{minipage}{\linewidth}% to keep image and caption on one page
-\makebox[\linewidth]{%        to center the image
-  \includegraphics[keepaspectratio=true,scale=0.6]{slike/visina8}}
-\captionof{figure}{...}\label{visina8}%      only if needed  
-\end{minipage}
-</code></pre>
-<p>or</p>
-<pre><code class="language-LaTeX">\begin{center}
-  \includegraphics[...]{slike/visina8}}
-\captionof{figure}{...}\label{visina8}%      only if needed  
-\end{center}
-</code></pre>
-<h3 id="cite">Cite</h3>
-<h3 id="multicolmultirow">Multicol/Multirow</h3>
-<h3 id="tabulary">Tabulary</h3>
 ]]></content>
     </entry>
 </feed>
